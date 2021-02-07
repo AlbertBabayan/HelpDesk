@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { IUser, IRegUser, ILogined } from '../../../core/infrastructure/interfaces';
 import { JwtHelperService } from '@auth0/angular-jwt';
-
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +24,7 @@ export class AuthService {
   }
 
   public get isSignedIn(): boolean {
-    return !!AuthService.token();
+    return AuthService.token() && this.jwtHelper.isTokenExpired(this.token);
   }
 
   public authentication(formData): Observable<ILogined>{
@@ -33,22 +32,23 @@ export class AuthService {
     .pipe(
       map(
         resp => {
-          this.token = this.jwtHelper.decodeToken(resp.tokens.access.token);
+          this.token = resp.tokens.access.token;
           return resp;
         }
       )
     );
   }
 
-  public addUser(regForm: IUser): Observable<IRegUser>{
-    return this.http.post<IRegUser>(`${environment.serverUrl}/auth/register`, regForm)
-    .pipe(
-      map(
-        resp => {
-          return resp;
-        }
-      )
-    );
+  public addUser(regForm: IUser): Observable<IRegUser|any>{
+    return this.http.post<IRegUser|any>(`${environment.serverUrl}/auth/register`, regForm)
+      .pipe(
+        map(
+          resp => {
+            return resp;
+          }
+        ),
+        catchError(err => err.Messages) // kardal nyuter
+      );
   }
 
   public restorePass(email: string): Observable<any>{

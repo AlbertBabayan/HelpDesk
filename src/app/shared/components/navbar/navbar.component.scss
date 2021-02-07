@@ -1,0 +1,86 @@
+:host::ng-deep{
+    .header{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .menu-items{
+            box-shadow: 0 1px 10px #24242f;
+            padding: 0;
+            .menu{
+                .p-megamenu{
+                    padding: 13px 0 13px 0;
+                    border: none;
+                    border-radius: 0px;
+                    background-color: #34344d;
+                    .p-megamenu-root-list{
+                        background-color: #34344d;
+                        width: 100%;
+                        padding-left: 70px;
+                        display: flex;
+                        justify-content: space-around;
+                        .p-menuitem{
+                            .p-megamenu-panel{
+                                border-radius: 5px;
+                                background-color: #5e6482;
+                                .p-megamenu-grid{
+                                    .ng-star-inserted{
+                                        .p-megamenu-submenu{
+                                            .p-megamenu-submenu-header{
+                                                display: none;
+                                                .ng-star-inserted{
+                                                    border-radius: 5px;
+                                                    display: flex;
+                                                    justify-content: center;
+                                                    align-items: center;
+                                                    flex-wrap: wrap;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .p-menuitem-link{
+                                .p-menuitem-text{
+                                    color: #e4f2ff;
+                                    ::before{
+                                        color: #e4f2ff;
+                                    }
+                                }
+                                .p-menuitem-icon{
+                                    color: #e4f2ff;
+                                    ::before{
+                                        color: #e4f2ff;
+                                    }
+                                }
+                                .p-submenu-icon{
+                                    color: #e4f2ff;
+                                }
+                            }
+                            .p-menuitem-link:hover{
+                                background-color: #b5bad2;
+                            }
+                            .p-menuitem-link:focus{
+                                box-shadow: none;
+                            }
+                            .p-menuitem-link:visited{
+                                background-color: #b5bad2;
+                            }
+                            .p-menuitem-link:hover{
+                                span{
+                                    color: black;
+                                    ::before{
+                                        color: black;
+    
+                                    }
+                                }
+                            }
+                        }
+                        .p-menuitem:focus{
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

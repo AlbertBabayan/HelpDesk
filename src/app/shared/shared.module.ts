@@ -1,16 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbDatepickerModule, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { MegaMenuModule } from 'primeng/megamenu';
+import { PanelMenuModule } from 'primeng/panelmenu';
+
+import { MainComponent } from './components/main/main.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SitebarComponent } from './components/sitebar/sitebar.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    MainComponent,
+    NavbarComponent,
+    SitebarComponent
+  ],
   imports: [
     CommonModule,
+    HttpClientModule,
     ReactiveFormsModule,
     NgbDatepickerModule,
     NgbPopoverModule,
@@ -18,8 +31,11 @@ import { ButtonModule } from 'primeng/button';
     CheckboxModule,
     InputTextModule,
     ButtonModule,
+    MegaMenuModule,
+    PanelMenuModule
   ],
   exports: [
+    HttpClientModule,
     ReactiveFormsModule,
     NgbDatepickerModule,
     NgbPopoverModule,
@@ -27,6 +43,8 @@ import { ButtonModule } from 'primeng/button';
     CheckboxModule,
     InputTextModule,
     ButtonModule,
+    NavbarComponent,
+    SitebarComponent
   ]
 })
 export class SharedModule { }
