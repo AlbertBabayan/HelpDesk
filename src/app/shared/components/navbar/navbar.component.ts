@@ -66,12 +66,3 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['login']);
   }
 }
-
-// function a(){
-//   console.log(this);
-// }
-// const b = {
-//   m: a.bind(this)
-// };
-
-// b.m();

@@ -19,22 +19,23 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public userInfoForm: FormGroup;
   public loggedIn: boolean;
-  private forUnsubscribe = new Subject();
+  private ngUnsubscribe = new Subject();
 
   constructor(
     private formBuilder: FormBuilder,
     private auth: AuthService,
     private router: Router,
-    private toastrService: ToastrService) {
-      this.loggedIn = this.auth.isSignedIn;
-      if (this.loggedIn){
-        this.router.navigate(['users']);
-      }
+    private toastrService: ToastrService)
+  {
+    this.loggedIn = this.auth.isSignedIn;
+    if (this.loggedIn){
+      this.router.navigate(['users']);
+    }
   }
 
   ngOnDestroy(){
-    this.forUnsubscribe.next();
-    this.forUnsubscribe.unsubscribe();
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 
   ngOnInit(): void {
@@ -55,7 +56,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     this.auth.authentication({email, password})
     .pipe(
-      takeUntil(this.forUnsubscribe)
+      takeUntil(this.ngUnsubscribe)
     )
     .subscribe(resp => {
       if (rememberMe){

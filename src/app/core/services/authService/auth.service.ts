@@ -19,12 +19,12 @@ export class AuthService {
     private jwtHelper: JwtHelperService
     ) { }
 
-  public static token(): string | null{
+  public static getToken(): string | null{
     return localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
   }
 
   public get isSignedIn(): boolean {
-    return AuthService.token() && this.jwtHelper.isTokenExpired(this.token);
+    return AuthService.getToken() && this.jwtHelper.isTokenExpired(this.token);
   }
 
   public authentication(formData): Observable<ILogined>{

@@ -13,7 +13,7 @@ import { maxLength } from '../../../core/infrastructure/validators';
 })
 export class RegistrationComponent implements OnInit, OnDestroy {
   public userRegInfo: FormGroup;
-  private forUnsubscribe = new Subject();
+  private ngUnsubscribe = new Subject();
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService
@@ -30,14 +30,14 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.forUnsubscribe.next();
-    this.forUnsubscribe.unsubscribe();
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 
   public createUser() {
     this.authService.addUser(this.userRegInfo.value)
     .pipe(
-      takeUntil(this.forUnsubscribe)
+      takeUntil(this.ngUnsubscribe)
     ).subscribe(
       resp => {},
       err => {},

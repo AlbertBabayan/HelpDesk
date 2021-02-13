@@ -13,7 +13,7 @@ import { AuthService } from './services';
     HttpClientModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: AuthService.token,
+        tokenGetter: AuthService.getToken,
         allowedDomains: [`${environment.serverUrl}`],
         disallowedRoutes: [],
         throwNoTokenError: true,
