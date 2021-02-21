@@ -20,7 +20,7 @@ import { PublicModule } from './public/public.module';
     CoreModule,
     PublicModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

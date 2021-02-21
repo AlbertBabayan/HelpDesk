@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
+import { ToastrService } from 'ngx-toastr';
+import { IUser } from '../../../core/infrastructure/interfaces';
 import { maxLength } from '../../../core/infrastructure/validators';
 
 import { AuthService } from '../../../core/services';
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public userInfoForm: FormGroup;
   public loggedIn: boolean;
+  public loginedUserInfo: IUser;
   private ngUnsubscribe = new Subject();
 
   constructor(
@@ -54,16 +56,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
     const {email, password, rememberme: rememberMe} = this.userInfoForm.value;
 
-    this.auth.authentication({email, password})
+    this.auth.authentication({email, password}, rememberMe)
     .pipe(
       takeUntil(this.ngUnsubscribe)
     )
-    .subscribe(resp => {
-      if (rememberMe){
-        localStorage.setItem('authToken', resp.tokens.access.token);
-      }else{
-        sessionStorage.setItem('authToken', resp.tokens.access.token);
-      }
+    .subscribe(() => {
       this.router.navigate(['users']);
     });
   }

@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../environments/environment';
-import { IUser, IRegUser, ILogined } from '../../../core/infrastructure/interfaces';
-import { JwtHelperService } from '@auth0/angular-jwt';
 
-@Injectable({
-  providedIn: 'root'
-})
+import { environment } from '../../../../environments/environment';
+import { IRegUser, ILogined, ILogin } from '../../../core/infrastructure/interfaces';
+
+@Injectable()
+
 export class AuthService {
 
   public token: string;
@@ -27,27 +27,34 @@ export class AuthService {
     return AuthService.getToken() && this.jwtHelper.isTokenExpired(this.token);
   }
 
-  public authentication(formData): Observable<ILogined>{
+  public authentication(formData: ILogin, rememberMe: boolean): Observable<ILogined>{
     return this.http.post<ILogined>(`${environment.serverUrl}/auth/login`, formData)
     .pipe(
       map(
         resp => {
           this.token = resp.tokens.access.token;
+          if (rememberMe) {
+            localStorage.setItem('authToken', this.token);
+          } else {
+            sessionStorage.setItem('authToken', this.token);
+          }
           return resp;
         }
       )
     );
   }
 
-  public addUser(regForm: IUser): Observable<IRegUser|any>{
-    return this.http.post<IRegUser|any>(`${environment.serverUrl}/auth/register`, regForm)
+  public addUser(regForm: IRegUser): Observable<ILogined | any>{
+    return this.http.post<ILogined>(`${environment.serverUrl}/auth/register`, regForm)
       .pipe(
         map(
           resp => {
+            this.token = resp.tokens.access.token;
+            sessionStorage.setItem('authToken', this.token);
             return resp;
           }
         ),
-        catchError(err => err.Messages) // kardal nyuter
+        catchError(err => err.Messages)
       );
   }
 
