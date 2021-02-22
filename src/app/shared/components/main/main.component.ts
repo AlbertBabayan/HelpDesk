@@ -6,8 +6,6 @@ import { takeUntil } from 'rxjs/operators';
 
 import { MainService } from '../../services';
 
-import { MegaMenuItem, MenuItem} from 'primeng/api';
-
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',

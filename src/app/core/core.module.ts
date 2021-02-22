@@ -25,7 +25,7 @@ import { AuthService } from './services';
     ToastrModule.forRoot()
   ],
   providers: [
-    AuthService
+    AuthService,
   ]
 })
 export class CoreModule { }
