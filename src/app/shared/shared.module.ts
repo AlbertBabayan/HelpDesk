@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbDatepickerModule, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
@@ -11,21 +10,16 @@ import { ButtonModule } from 'primeng/button';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { PanelMenuModule } from 'primeng/panelmenu';
 
-import { MainService } from './services';
-
-import { MainComponent } from './components/main/main.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { SitebarComponent } from './components/sitebar/sitebar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
-    MainComponent,
     NavbarComponent,
-    SitebarComponent
+    SidebarComponent
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
     ReactiveFormsModule,
     NgbDatepickerModule,
     NgbPopoverModule,
@@ -37,7 +31,6 @@ import { SitebarComponent } from './components/sitebar/sitebar.component';
     PanelMenuModule
   ],
   exports: [
-    HttpClientModule,
     ReactiveFormsModule,
     NgbDatepickerModule,
     NgbPopoverModule,
@@ -46,10 +39,8 @@ import { SitebarComponent } from './components/sitebar/sitebar.component';
     InputTextModule,
     ButtonModule,
     NavbarComponent,
-    SitebarComponent
+    SidebarComponent
   ],
-  providers: [
-    MainService
-  ]
+  providers: []
 })
 export class SharedModule { }

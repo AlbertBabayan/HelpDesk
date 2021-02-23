@@ -1,17 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { environment } from '../../../../environments/environment';
+import { IUser } from '../../../core/infrastructure/interfaces';
 
 @Injectable()
 
-export class MainService {
+export class AdminDataService {
 
   constructor(
     private http: HttpClient
   ) { }
 
-  public getUsers(limit: number, page: number): Observable<any> {
-    return this.http.get<any>(`${environment.serverUrl}/users?limit=${limit}&page=${page}`);
+  public getAllUsers(page: number, limit: number): Observable<IUser[]>{
+    return this.http.get<any>(`${environment.serverUrl}/users?page=${page}&limit=${limit}`);
   }
+
 }

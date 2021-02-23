@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  serverUrl: 'helpdesk.am'
+  serverDomain: 'helpdesk.am',
+  serverUrl: 'http://helpdesk.am'
 };

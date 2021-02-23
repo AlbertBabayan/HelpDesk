@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   {
     this.loggedIn = this.auth.isSignedIn;
     if (this.loggedIn){
-      this.router.navigate(['users']);
+      this.router.navigate(['admin']);
     }
   }
 
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       takeUntil(this.ngUnsubscribe)
     )
     .subscribe(() => {
-      this.router.navigate(['users']);
+      this.router.navigate(['admin']);
     });
   }
 

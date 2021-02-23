@@ -15,17 +15,17 @@ import { AuthService } from './services';
     HttpClientModule,
     JwtModule.forRoot({
       config: {
+        allowedDomains: [environment.serverDomain],
+        disallowedRoutes: [`${environment.serverUrl}/auth/login`],
         tokenGetter: AuthService.getToken,
-        allowedDomains: [`${environment.serverUrl}`],
-        disallowedRoutes: [],
-        throwNoTokenError: true,
-        skipWhenExpired: true
+        skipWhenExpired: true,
+        throwNoTokenError: true
       }
     }),
     ToastrModule.forRoot()
   ],
   providers: [
-    AuthService,
+    AuthService
   ]
 })
 export class CoreModule { }

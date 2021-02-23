@@ -2,18 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
-  selector: 'app-sitebar',
-  templateUrl: './sitebar.component.html',
-  styleUrls: ['./sitebar.component.scss']
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.scss']
 })
-export class SitebarComponent implements OnInit {
+export class SidebarComponent implements OnInit {
 
-  public sitebarItems: MenuItem[];
+  public sidebarItems: MenuItem[];
 
   constructor() { }
 
   ngOnInit(): void {
-    this.sitebarItems = [
+    this.sidebarItems = [
       {
       label: 'Staff',
       icon: 'pi pi-fw pi-users',
