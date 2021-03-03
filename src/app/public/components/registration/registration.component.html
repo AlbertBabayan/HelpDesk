@@ -1,43 +1,58 @@
 <div class="container-fluid cont">
-    <div class="container">
-        <div class="registration row">
-            <p>Registration</p>
-        </div>
-        <div class="login-wrapper row">
-            <div class="userPlus col-12 col-sm-3">
-                <i class="fa fa-user-plus fa-5x" aria-hidden="true"></i>
-            </div>
-            <div class="col-12 col-sm-9 formgroup">
-                <form class="p-fluid p-grid" [formGroup]="userRegInfo">
-                    <div class="row area p-field p-col-12 p-md-4">
-                         <div *ngIf="userRegInfo.get('firstName').errors as errors" class="text-danger">
-                            <p *ngIf="errors.maxLength">{{errors.maxLength.message}}</p>
-                            <!-- <pre>{{errors | json}}</pre> -->
-                        </div>
-                        <div class="control col-12 col-sm-6 text-danger p-float-label">
-                            <input formControlName="firstName" class="form-control" pInputText type="text" id="inputtext">
-                            <label for="inputtext">Firstname</label>
-                        </div>
-                        <div class="control col-12 col-sm-6 p-float-label">
-                            <input formControlName="lastName" class="form-control" pInputText type="text">
-                            <label for="inputtext">Lastname</label>
-                        </div>
-                    </div>
-                    <div class="row area p-field p-col-12 p-md-4">
-                        <div class="control col-12 col-sm-6 p-float-label">
-                            <input formControlName="email" class="form-control" pInputText type="email" id="exampleInputEmail1">
-                            <label for="inputtext">Email</label>
-                        </div>
-                        <div class="control col-12 col-sm-6 p-float-label">
-                            <input formControlName="password" class="form-control" pInputText type="password">
-                            <label for="inputtext">Password</label>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="create row">
-            <button [disabled]="userRegInfo.invalid" (click)="createUser()" type="button" class="btn btn-dark">Create Accaunt</button>
-        </div>
+  <div class="container content">
+    <div class="registration row">
+      <p>Registration</p>
+      <i class="fa fa-user-plus fa-5x" aria-hidden="true"></i>
     </div>
+    <div class="login-wrapper row">
+      <div class="col-12 formgroup">
+        <form class="p-fluid p-grid" [formGroup]="userRegInfo">
+          <div class="row area p-field p-col-12 p-md-4">
+            <div class="field col-12 col-sm-6">
+              <div class="control text-danger p-float-label">
+                <input formControlName="firstName" class="form-control" pInputText type="text" id="inputtext">
+                <label for="inputtext">Firstname</label>
+              </div>
+              <div *ngIf="userRegInfo.get('firstName').errors as errors" class="errMessage text-danger">
+                <p *ngIf="errors.maxLength">{{errors.maxLength.message}}</p>
+                <!-- <pre>{{errors | json}}</pre> -->
+              </div>
+            </div>
+            <div class="field col-12 col-sm-6">
+              <div class="control p-float-label">
+                <input formControlName="lastName" class="form-control" pInputText type="text">
+                <label for="inputtext">Lastname</label>
+              </div>
+              <div *ngIf="userRegInfo.get('lastName').errors as errors" class="errMessage text-danger">
+                <p *ngIf="errors.maxLength">{{errors.maxLength.message}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="row area p-field p-col-12 p-md-4">
+            <div class="field col-12 col-sm-6">
+              <div class="control p-float-label">
+                <input formControlName="email" class="form-control" pInputText type="email" id="exampleInputEmail1">
+                <label for="inputtext">Email</label>
+              </div>
+              <div *ngIf="userRegInfo.get('email').errors as errors" class="errMessage text-danger">
+                <p *ngIf="errors.email">Email is not valid</p>
+              </div>
+            </div>
+            <div class="field col-12 col-sm-6" >
+              <div class="control p-float-label">
+                <input formControlName="password" class="form-control" pInputText type="password">
+                <label for="inputtext">Password</label>
+              </div>
+              <div *ngIf="userRegInfo.get('password').errors as errors" class="errMessage text-danger">
+                <p *ngIf="errors.minLength">{{errors.minLength.message}}</p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="create row">
+      <button [disabled]="userRegInfo.invalid" (click)="createUser()" type="button" class="btn btn-dark">Create Account</button>
+    </div>
+  </div>
 </div>

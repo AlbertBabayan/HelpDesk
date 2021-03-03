@@ -57,6 +57,10 @@
                     outline: none
                 }
             }
+            .errMessage{
+              display: flex;
+              justify-content: center;
+            }
             .rememberAndForgot{
                 display: flex;
                 justify-content: space-between;
@@ -91,7 +95,7 @@
                     margin-right: 22px;
                 }
             }
-            
+
             .login{
                 display: flex;
                 justify-content: center;
@@ -154,5 +158,5 @@
 }
 
 .ng-dirty.ng-invalid{
-    border-color:red !important;
+    border-color:red;
 }

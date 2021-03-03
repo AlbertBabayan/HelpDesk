@@ -1,10 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
 import { AuthService } from 'src/app/core/services';
-import { maxLength } from '../../../core/infrastructure/validators';
+import { maxLength, minLength } from '../../../core/infrastructure/validators';
 
 
 @Component({
@@ -24,9 +26,9 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.userRegInfo = this.formBuilder.group({
       firstName: ['', [Validators.required], [maxLength(8)]],
-      lastName: ['', Validators.required],
+      lastName: ['', [Validators.required], [maxLength(14)]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required], [maxLength(8)]],
+      password: ['', [Validators.required], [minLength(8)]],
       role: ['user']
     });
   }
@@ -42,7 +44,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
       takeUntil(this.ngUnsubscribe)
     ).subscribe(
       resp => {
-        this.router.navigate(['user']);
+        this.router.navigate(['admin']);
       },
       err => {},
     );

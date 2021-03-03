@@ -1,75 +1,62 @@
-.cont{
-    height: 100vh;
-    background-color: #EAEAF8;
+.cont {
+  height: 100vh;
+  background-color: #eaeaf8;
 }
-.registration{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 0;
-    p{
-        margin: 0;
-        font-family: Georgia, serif;
-        font-size: 80px;
-        color: #7b7b7b;
-    }
+.content{
+  background-color: #f1f1ff;
+  height: 100%;
 }
-.login-wrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    padding: 30px 70px;
-    .userPlus{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #4c5763;
-    }
-    .formgroup{
-        padding-right: 110px;
-        .area{
-            .control label{
-                left: 1.5rem !important;
-            }
-            .control input:focus{
-                border: none;
-            }
-            .gender{
-                display: flex;
-                justify-content: space-evenly;
-                padding: 0;
-                .radiobutton{
-                    display: flex;
-                    align-items: center;
-                    cursor: pointer;
-                    label{
-                        margin: 0;
-                        padding-left: 10px;
-                        color: #4c5763;
-                        cursor: pointer;
-                    }
-                }
-                .radiobutton:hover{
-                    border-bottom: 1px solid #007aff;
-                }
-            }
+.registration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  p {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 80px;
+    color: #7b7b7b;
+  }
+  i {
+    color: #4c5763;
+    margin: 20px;
+  }
+}
+.login-wrapper {
+  .formgroup {
+    padding: 0 200px;
+    .area {
+      .field {
+        .control {
+          width: 100%;
+          label {
+            top: -15px;
+          }
         }
+        .control input:focus {
+          border: none;
+        }
+        .errMessage {
+          display: flex;
+          p {
+            margin: 5px 0 0 0;
+          }
+        }
+      }
     }
+  }
 }
-.create{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 40px 0 0 360px;
-    button{
-        box-shadow: 0 1px 15px #004843;
-    }
-    button:focus{
-        box-shadow: 0 1px 15px #004843;
-        border: none;
-    }
+.create {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 80px 0 0 0;
+  button:focus {
+    box-shadow: 0 1px 15px #004843;
+    border: none;
+  }
 }
-.ng-invalid.ng-touched{
-    border-color: red;
+.ng-invalid.ng-touched {
+  border-color: red;
 }

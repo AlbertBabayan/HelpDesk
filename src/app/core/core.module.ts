@@ -16,7 +16,11 @@ import { AuthService } from './services';
     JwtModule.forRoot({
       config: {
         allowedDomains: [environment.serverDomain],
-        disallowedRoutes: [`${environment.serverUrl}/auth/login`],
+        disallowedRoutes: [
+          `${environment.serverUrl}/auth/login`,
+          `${environment.serverUrl}/auth/register`,
+          `${environment.serverUrl}/auth/restore`
+        ],
         tokenGetter: AuthService.getToken,
         skipWhenExpired: true,
         throwNoTokenError: true

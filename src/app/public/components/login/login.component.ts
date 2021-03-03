@@ -1,13 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { ToastrService } from 'ngx-toastr';
 import { IUser } from '../../../core/infrastructure/interfaces';
 import { maxLength } from '../../../core/infrastructure/validators';
-
 import { AuthService } from '../../../core/services';
 
 
@@ -27,15 +27,14 @@ export class LoginComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder,
     private auth: AuthService,
     private router: Router,
-    private toastrService: ToastrService)
-  {
+    private toastrService: ToastrService) {
     this.loggedIn = this.auth.isSignedIn;
-    if (this.loggedIn){
+    if (this.loggedIn) {
       this.router.navigate(['admin']);
     }
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }
@@ -49,27 +48,39 @@ export class LoginComponent implements OnInit, OnDestroy {
     );
   }
 
-  public login(){
-    if (this.userInfoForm.invalid){
-      this.toastrService.error('form is invalid', 'error');
+  public login() {
+    if (this.userInfoForm.invalid) {
+      this.toastrService.error('Form is invalid', 'Error');
       return;
     }
-    const {email, password, rememberme: rememberMe} = this.userInfoForm.value;
+    const { email, password, rememberme: rememberMe } = this.userInfoForm.value;
 
-    this.auth.authentication({email, password}, rememberMe)
-    .pipe(
-      takeUntil(this.ngUnsubscribe)
-    )
-    .subscribe(() => {
-      this.router.navigate(['admin']);
-    });
+    this.auth.authentication({ email, password }, rememberMe)
+      .pipe(
+        takeUntil(this.ngUnsubscribe)
+      )
+      .subscribe(
+        () => {
+          this.router.navigate(['admin']);
+        },
+        err => {
+          if (err.status === 0){
+            this.toastrService.error('no internet conection');
+          }else if (err.status === 404){
+            this.toastrService.error('no server conection');
+          }else {
+            const message = err && err.error && err.error.message || 'Invalid request';
+            this.toastrService.error(message);
+          }
+        }
+      );
   }
 
-  public forgotPassword(){
+  public forgotPassword() {
     this.router.navigate(['restore']);
   }
 
-  public singUp(){
+  public singUp() {
     this.router.navigate(['registration']);
   }
 }

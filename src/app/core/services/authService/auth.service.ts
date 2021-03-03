@@ -44,7 +44,7 @@ export class AuthService {
     );
   }
 
-  public addUser(regForm: IRegUser): Observable<ILogined | any>{
+  public addUser(regForm: IRegUser): Observable<ILogined>{
     return this.http.post<ILogined>(`${environment.serverUrl}/auth/register`, regForm)
       .pipe(
         map(
@@ -54,7 +54,6 @@ export class AuthService {
             return resp;
           }
         ),
-        catchError(err => err.Messages)
       );
   }
 
