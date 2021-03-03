@@ -5,6 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 
 import { AdminDataService } from '../../services';
 import { IUser } from '../../../core/infrastructure/interfaces';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-admin',
@@ -18,11 +19,13 @@ export class AdminComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject();
 
   constructor(
-    private adminData: AdminDataService
+    private adminData: AdminDataService,
+    private primengConfig: PrimeNGConfig
   ) { }
 
   ngOnInit(): void {
     this.getUsers();
+    this.primengConfig.ripple = true;
   }
 
   ngOnDestroy(): void {
@@ -39,6 +42,12 @@ export class AdminComponent implements OnInit, OnDestroy {
       resp => {
         this.users = resp;
       }
+    );
+  }
+
+  public deleteUser(id: string){
+    this.users = this.users.filter(
+      (user) => user.id !== id
     );
   }
 }

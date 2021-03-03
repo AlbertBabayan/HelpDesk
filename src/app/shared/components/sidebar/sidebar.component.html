@@ -1,6 +1,22 @@
-<div class="sitebar">
-    <div class="icon">
+<div class="sidebar row">
+    <div class="img col">
         <img class="airplane" src="../../../../assets/imgs/airplane1.svg">
     </div>
-    <p-panelMenu class="sidebarMenu" [model]="sidebarItems"></p-panelMenu>
+    <div class="nav col">
+      <div class="navElement" routerLink="/staff">
+        <button type="button" class="button">
+          <i class=" icon fa fa-users fa-lg" aria-hidden="true"></i>Staff
+        </button>
+      </div>
+      <div class="navElement" routerLink="/tickets">
+        <button type="button" class="button">
+          <i class=" icon fa fa-ticket fa-lg" aria-hidden="true"></i>Tickets
+        </button>
+      </div>
+      <div class="navElement" routerLink="/config">
+        <button type="button" class="button">
+          <i class=" icon fa fa-cog fa-lg" aria-hidden="true"></i>Configuration
+        </button>
+      </div>
+    </div>
 </div>

@@ -8,32 +8,39 @@
             padding: 0;
             .menu{
                 .p-megamenu{
-                    padding: 13px 0 13px 0;
+                    padding: 14px 0 14px 0;
                     border: none;
                     border-radius: 0px;
                     background-color: #34344d;
                     .p-megamenu-root-list{
                         background-color: #34344d;
                         width: 100%;
-                        padding-left: 70px;
                         display: flex;
-                        justify-content: space-around;
+                        justify-content: flex-end;
                         .p-menuitem{
+                          padding-right: 20px;
                             .p-megamenu-panel{
                                 border-radius: 5px;
                                 background-color: #5e6482;
+                                width: 150px;
                                 .p-megamenu-grid{
-                                    .ng-star-inserted{
+                                    .p-megamenu-col-12{
                                         .p-megamenu-submenu{
+                                          width: 150px;
+                                          padding: 0;
                                             .p-megamenu-submenu-header{
                                                 display: none;
-                                                .ng-star-inserted{
-                                                    border-radius: 5px;
-                                                    display: flex;
-                                                    justify-content: center;
-                                                    align-items: center;
-                                                    flex-wrap: wrap;
+                                            }
+                                            .p-menu-item{
+                                              .p-menuitem-link{
+                                                .p-menuitem-text:hover{
+                                                  color: #313156;
+                                                  font-size: 20px;
                                                 }
+                                              }
+                                              .p-menuitem-link:hover{
+                                                background-color: none;
+                                              }
                                             }
                                         }
                                     }
@@ -41,6 +48,9 @@
                             }
                             .p-menuitem-link{
                               background: none;
+                              display: flex;
+                              justify-content: center;
+                              align-items: center;
                                 .p-menuitem-text{
                                     color: #e4f2ff;
                                     ::before{
@@ -58,13 +68,14 @@
                                 }
                             }
                             .p-menuitem-link:hover{
-                                background-color: #b5bad2;
+                                background-color: none;
                             }
                             .p-menuitem-link:focus{
                                 box-shadow: none;
+                                background-color: none;
                             }
                             .p-menuitem-link:visited{
-                                background-color: #b5bad2;
+                                background-color: none;
                             }
                             .p-menuitem-link:hover{
                                 span{

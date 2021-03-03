@@ -1,9 +1,54 @@
 :host::ng-deep{
-    .sitebar{
-        height: 100vh;
+  .sidebar{
+    height: 100vh;
+    background-color: #123950;
+    .img{
+        display: flex;
+        .airplane{
+            width: -webkit-fill-available;
+        }
+    }
+    .nav{
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .navElement{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: #819e9e;
+      cursor: pointer;
+      .button{
+        text-shadow: 2px 2px black;
+        font-size: 20px;
         background-color: #123950;
-        padding: 0;
-        .sitebarMenu{
+        color: #819e9e;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        .icon{
+          padding: 10%;
+        }
+      }
+      .button:hover{
+        background-color: #123950;
+        color: #4cacac;
+      }
+      .button:focus{
+        outline: none;
+      }
+    }
+    .navElement:focus{
+      outline: none;
+    }
+  }
+      .sidebarMenu{
             .p-panelmenu{
                 .p-panelmenu-panel{
                     .p-toggleable-content{
@@ -54,12 +99,5 @@
                     }
                 }
             }
-        }
-        .icon{
-            display: flex;
-            .airplane{
-                width: -webkit-fill-available;
-            }
-        }
-    }
-}
+      }
+  }

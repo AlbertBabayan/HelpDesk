@@ -5,18 +5,24 @@ import { SharedModule } from '../shared/shared.module';
 import { AdminRoutingModule } from './admin-routing.module';
 
 import { AdminComponent } from './components/admin/admin.component';
-import { AdminDataService } from './services';
-
+import { AdminDataService, StaffService } from './services';
+import { StaffComponent, TicketsComponent, ConfigComponent } from './components';
 
 @NgModule({
-  declarations: [AdminComponent],
+  declarations: [
+    AdminComponent,
+    StaffComponent,
+    TicketsComponent,
+    ConfigComponent
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     SharedModule,
   ],
   providers: [
-    AdminDataService
+    AdminDataService,
+    StaffService
   ],
 })
 export class AdminModule { }

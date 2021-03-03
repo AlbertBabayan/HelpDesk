@@ -7,8 +7,8 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
 import { MegaMenuModule } from 'primeng/megamenu';
-import { PanelMenuModule } from 'primeng/panelmenu';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -27,8 +27,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     CheckboxModule,
     InputTextModule,
     ButtonModule,
+    RippleModule,
     MegaMenuModule,
-    PanelMenuModule
   ],
   exports: [
     ReactiveFormsModule,
@@ -38,6 +38,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     CheckboxModule,
     InputTextModule,
     ButtonModule,
+    RippleModule,
     NavbarComponent,
     SidebarComponent
   ],

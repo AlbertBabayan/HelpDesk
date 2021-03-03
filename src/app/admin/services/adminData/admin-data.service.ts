@@ -16,5 +16,4 @@ export class AdminDataService {
   public getAllUsers(page: number, limit: number): Observable<IUser[]>{
     return this.http.get<any>(`${environment.serverUrl}/users?page=${page}&limit=${limit}`);
   }
-
 }
