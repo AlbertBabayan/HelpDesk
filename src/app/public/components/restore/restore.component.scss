@@ -1,66 +1,78 @@
-.head{
-    background-color: #e1d8ea;
-    height: 100vh;
+.head {
+  background-color: #d7f0f4;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .cont {
     display: flex;
     justify-content: center;
     align-items: center;
-    .cont{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        font-family: initial;
-        margin-bottom: 100px;
-        .forgot{
-            width: 100%;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .enter{
-            width: 100%;
-            text-align: center;
-            margin-bottom: 60px;
-            color: #6b6b6b;
-        }
-        form{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            width: 30%;
-            .email{
-                padding: 0 !important;
-                div{
-                    input{
-                        width: 100%;
-                    }
-                    label{
-                        margin-left: 13px;
-                    }
-                }
-            }
-            .confirm{
-                width: 100%;
-                button{
-                    box-shadow: 0 1px 15px #8c239e;
-                    width: 100%;
-                    margin-top: 20px;
-                    border: none;
-                }
-                button:focus{
-                    box-shadow: 0 1px 15px #8c239e;
-                }
-            }
-        }
-        a{
-            width: 100%;
-            text-align: center;
-            margin-top: 20px;
-            color: #6b6b6b;
-            cursor: pointer;
-        }
-        a:active{
-            color: black;
-        }
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+    .forgot {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 40px;
     }
+    .enter {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 60px;
+      color: #6b6b6b;
+    }
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      width: 25%;
+      .email {
+        padding: 0 !important;
+        div {
+          input {
+            width: 100%;
+          }
+          label {
+            margin-left: 13px;
+          }
+        }
+        .errMessage {
+          display: flex;
+          justify-content: center;
+          margin-top: 10px;
+        }
+      }
+      .confirm {
+        width: 100%;
+        .p-button-secondary {
+          width: 100%;
+          margin-top: 20px;
+          border: none;
+        }
+        .p-button-secondary:focus {
+          box-shadow: none;
+        }
+      }
+      .p-button-secondary:not([disabled]):hover {
+        background-color: #4e4c4c;
+      }
+      .p-button-secondary:not([disabled]) {
+        box-shadow: 0 5px 10px #4e4c4c;
+      }
+      .p-button-secondary:not([disabled]):focus {
+        box-shadow: none;
+      }
+    }
+    a {
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+      color: #6b6b6b;
+      cursor: pointer;
+    }
+    a:active {
+      color: black;
+    }
+  }
 }

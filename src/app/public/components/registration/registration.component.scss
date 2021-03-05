@@ -2,7 +2,7 @@
   height: 100vh;
   background-color: #eaeaf8;
 }
-.content{
+.content {
   background-color: #f1f1ff;
   height: 100%;
 }
@@ -52,9 +52,14 @@
   align-items: center;
   width: 100%;
   padding: 80px 0 0 0;
-  button:focus {
-    box-shadow: 0 1px 15px #004843;
+  .btn:focus {
     border: none;
+  }
+  .btn:not([disabled]) {
+    box-shadow: 0 1px 15px #004843;
+  }
+  .btn:not([disabled]):focus {
+    box-shadow: none;
   }
 }
 .ng-invalid.ng-touched {

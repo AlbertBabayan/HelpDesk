@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -20,7 +21,8 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -42,11 +44,14 @@ export class RegistrationComponent implements OnInit, OnDestroy {
     this.authService.addUser(this.userRegInfo.value)
     .pipe(
       takeUntil(this.ngUnsubscribe)
-    ).subscribe(
-      resp => {
+    ).subscribe({
+      next: resp => {
         this.router.navigate(['admin']);
       },
-      err => {},
-    );
+      error: err => {
+        const message = err && err.error && err.error.message || 'Invalid request';
+        this.toastr.error(message);
+      }
+    });
   }
 }

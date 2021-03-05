@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 import { environment } from '../../../../environments/environment';
-import { IRegUser, ILogined, ILogin } from '../../../core/infrastructure/interfaces';
+import { IRegUser, ILogined, ILogin, IRestore } from '../../../core/infrastructure/interfaces';
 
 @Injectable()
 
@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   public get isSignedIn(): boolean {
-    return AuthService.getToken() && this.jwtHelper.isTokenExpired(this.token);
+    return AuthService.getToken() && !this.jwtHelper.isTokenExpired(this.token);
   }
 
   public authentication(formData: ILogin, rememberMe: boolean): Observable<ILogined>{
@@ -57,7 +57,7 @@ export class AuthService {
       );
   }
 
-  public restorePass(email: string): Observable<any>{
-    return this.http.post<any>(`${environment.serverUrl}/auth/forgot-password`, email);
+  public restorePass(email: string): Observable<IRestore>{
+    return this.http.post<IRestore>(`${environment.serverUrl}/auth/forgot-password`, email);
   }
 }

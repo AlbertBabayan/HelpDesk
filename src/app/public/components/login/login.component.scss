@@ -68,13 +68,14 @@
                     display: flex;
                     align-items: center;
                     margin-left: 15px;
+                    font-size: 15px;
                     .rem{
                         margin: 0 7px;
                     }
                     label{
                         margin: 0;
                         color: #444444;
-                        font-size: 13px;
+                        font-size: 15px;
                         cursor: pointer;
                     }
                     input{
@@ -85,12 +86,12 @@
                 }
                 .forgot{
                     margin-right: 15px;
-                    font-size: 13px;
+                    font-size: 15px;
                     color: #444444;
                     cursor: pointer;
                 }
                 .forgot:active{
-                    font-size: 12px;
+                    font-size: 14px;
                     color: #000000;
                     margin-right: 22px;
                 }
@@ -105,6 +106,7 @@
                     width: 280px;
                     height: 35px;
                     border-radius: 6px;
+                    font-size: 20px;
                     border: none;
                     background-color: #00B5AD;
                     color: white;
@@ -134,7 +136,7 @@
             box-shadow: 0 1px 5px #25254159;;
             p{
                 margin: 0;
-                font-size: 13px;
+                font-size: 15px;
                 color: #444444;
             }
             a{
@@ -143,6 +145,7 @@
                 font-weight: 500;
                 cursor: pointer;
                 margin-left: 8px;
+                font-size: 18px;
             }
             a:active{
                 box-shadow: none;

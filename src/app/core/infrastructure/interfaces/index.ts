@@ -3,3 +3,4 @@ export * from './logined.interface';
 export * from './registrationUser.interface';
 export * from './tokens.interface';
 export * from './user.interface';
+export * from './restore.interface';

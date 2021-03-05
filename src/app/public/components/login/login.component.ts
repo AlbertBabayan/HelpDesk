@@ -49,10 +49,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   public login() {
-    if (this.userInfoForm.invalid) {
-      this.toastrService.error('Form is invalid', 'Error');
-      return;
-    }
     const { email, password, rememberme: rememberMe } = this.userInfoForm.value;
 
     this.auth.authentication({ email, password }, rememberMe)
@@ -64,11 +60,9 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.router.navigate(['admin']);
         },
         err => {
-          if (err.status === 0){
-            this.toastrService.error('no internet conection');
-          }else if (err.status === 404){
-            this.toastrService.error('no server conection');
-          }else {
+          if (err.status === 0 || err.status === 404) {
+            this.toastrService.error('The requested URL was not found on this server or no internet conection');
+          } else {
             const message = err && err.error && err.error.message || 'Invalid request';
             this.toastrService.error(message);
           }
