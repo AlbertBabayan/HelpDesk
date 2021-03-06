@@ -3,12 +3,14 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } fro
 import { Observable } from 'rxjs';
 import { AuthService } from '../../services';
 
-@Injectable()
-
-export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService){}
-
+@Injectable({
+  providedIn: 'root'
+})
+export class ActivatePublicGuard implements CanActivate {
+  constructor(
+    private auth: AuthService
+  ){}
   canActivate(): boolean {
-      return this.authService.isSignedIn;
+    return !this.auth.isSignedIn;
   }
 }

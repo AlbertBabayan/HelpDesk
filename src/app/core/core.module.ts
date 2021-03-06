@@ -7,6 +7,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 
 import { environment } from 'src/environments/environment';
 import { AuthService } from './services';
+import { ActivatePublicGuard } from './guards';
 
 @NgModule({
   declarations: [],
@@ -29,7 +30,8 @@ import { AuthService } from './services';
     ToastrModule.forRoot()
   ],
   providers: [
-    AuthService
+    AuthService,
+    ActivatePublicGuard
   ]
 })
 export class CoreModule { }

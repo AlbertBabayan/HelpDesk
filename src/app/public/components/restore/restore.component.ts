@@ -34,18 +34,18 @@ export class RestoreComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.complete();
   }
 
-  public restore(){
+  public restore() {
     this.auth.restorePass(this.form.value.email)
-    .pipe(
-      takeUntil(this.ngUnsubscribe)
-    ).subscribe({
-      next: (resp) => {
-        this.router.navigate(['login']);
-      },
-      error: err => {
-        this.toastr.error('Please enter valid email');
-      }
-    });
+      .pipe(
+        takeUntil(this.ngUnsubscribe)
+      ).subscribe({
+        next: (resp) => {
+          this.router.navigate(['login']);
+        },
+        error: err => {
+          this.toastr.error('Please enter valid email');
+        }
+      });
   }
   public iRemember() {
     this.router.navigate(['login']);

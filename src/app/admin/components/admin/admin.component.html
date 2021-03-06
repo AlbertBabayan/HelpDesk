@@ -1,40 +1,15 @@
 <div class="container-fluid">
   <div class="row main">
-      <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 sidebar">
-          <app-sidebar></app-sidebar>
+    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 sidebar">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-xl-10 col-lg-9 col-md-8 col-sm-7 header">
+      <div>
+        <app-navbar></app-navbar>
       </div>
-      <div class="col-xl-10 col-lg-9 col-md-8 col-sm-7 headerAndContent">
-          <app-navbar></app-navbar>
-          <section class="row content">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">FirstName</th>
-                  <th scope="col">LastName</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Role</th>
-                  <th scope="col">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let user of users; index as i">
-                  <th scope="row">{{user.id}}</th>             <!-- grvac che irakan ID-nery -->
-                  <td>
-                    {{ user.firstName }}
-                  </td>
-                  <td>{{ user.lastName }}</td>
-                  <td>{{ user.email }}</td>
-                  <td>{{ user.role }}</td>
-                  <td>
-                    <button (click)="deleteUser(user.id)" pButton pRipple type="button" label="Delete" class="p-button-danger p-button-text"></button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-              <router-outlet></router-outlet>
-          </section>
+      <div class="row content">
+        <app-staff></app-staff>
       </div>
+    </div>
   </div>
 </div>
-

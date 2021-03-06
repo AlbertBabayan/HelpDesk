@@ -28,7 +28,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     InputTextModule,
     ButtonModule,
     RippleModule,
-    MegaMenuModule,
+    MegaMenuModule
   ],
   exports: [
     ReactiveFormsModule,

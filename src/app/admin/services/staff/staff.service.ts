@@ -13,7 +13,12 @@ export class StaffService {
   constructor(
     private http: HttpClient
   ) { }
-  public deleteUser(id: string): Observable<IUser[]>{
-    return this.http.delete<any>(`${environment.serverUrl}/users/:${id}`);
+
+  public getAllUsers(page: number, limit: number): Observable<IUser[]> {
+    return this.http.get<IUser[]>(`${environment.serverUrl}/users?page=${page}&limit=${limit}`);
+  }
+
+  public deleteUser(id: string): Observable<IUser[]> {
+    return this.http.delete<IUser[]>(`${environment.serverUrl}/users/:${id}`);
   }
 }

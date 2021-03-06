@@ -42,16 +42,20 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   public createUser() {
     this.authService.addUser(this.userRegInfo.value)
-    .pipe(
-      takeUntil(this.ngUnsubscribe)
-    ).subscribe({
-      next: resp => {
-        this.router.navigate(['admin']);
-      },
-      error: err => {
-        const message = err && err.error && err.error.message || 'Invalid request';
-        this.toastr.error(message);
-      }
-    });
+      .pipe(
+        takeUntil(this.ngUnsubscribe)
+      ).subscribe({
+        next: resp => {
+          this.router.navigate(['admin']);
+        },
+        error: err => {
+          if (err.status === 0 || err.status === 404) {
+            this.toastr.error('The requested URL was not found on this server or no internet conection');
+          } else {
+            const message = err && err.error && err.error.message || 'Invalid request';
+            this.toastr.error(message);
+          }
+        }
+      });
   }
 }

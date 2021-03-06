@@ -1,103 +1,102 @@
-:host::ng-deep{
-  .sidebar{
+:host::ng-deep {
+  .sidebar {
     height: 100vh;
     background-color: #123950;
-    .img{
-        display: flex;
-        .airplane{
-            width: -webkit-fill-available;
-        }
+    grid-template-rows: auto 1fr;
+    display: grid;
+    .img {
+      display: contents;
+      .cat {
+        width: 100%;
+        height: 100%;
+      }
     }
-    .nav{
+    .nav {
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
       justify-content: flex-start;
-      align-items: center;
+      align-items: flex-start;
     }
-    .navElement{
-      width: 100%;
+    .navElement {
       display: flex;
+      justify-content: center;
       align-items: center;
-      justify-content: flex-start;
-      color: #819e9e;
+      padding: 10px 20px;
       cursor: pointer;
-      .button{
-        text-shadow: 2px 2px black;
+      .button {
         font-size: 20px;
         background-color: #123950;
-        color: #819e9e;
+        color: #b2b9c2;
         border: none;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        width: 100%;
-        .icon{
-          padding: 10%;
-        }
       }
-      .button:hover{
-        background-color: #123950;
-        color: #4cacac;
+      .icon {
+        color: #6696d4;;
       }
-      .button:focus{
+      .button:hover {
+        color: #2e6cbd;
+      }
+      .button:active {
+        color: #2e6cbd;
+      }
+      .button:focus {
         outline: none;
       }
     }
-    .navElement:focus{
+    .navElement:focus {
       outline: none;
     }
   }
-      .sidebarMenu{
-            .p-panelmenu{
-                .p-panelmenu-panel{
-                    .p-toggleable-content{
-                        .p-panelmenu-content {
-                            background-color: #123950;
-                            border: none;
-                            .p-submenu-list{
-                                .p-menuitem{
-                                    .p-menuitem-link{
-                                        .p-panelmenu-icon{
-                                            color: #bbbab8;
-                                        }
-                                        .p-menuitem-icon{
-                                            color: #bbbab8;
-                                        }
-                                        .p-menuitem-text{
-                                            color: #bbbab8;
-                                        }
-                                    }
-                                    .p-menuitem-link:focus{
-                                        box-shadow: none;
-                                        color: #e4f2ff;
-                                    }
-                                    .p-menuitem-link:hover{
-                                        background-color: #175073;
-                                        color: #e4f2ff;
-                                    }
-                                }
-
-                                .p-menuitem:focus{
-                                    outline: none;
-                                }
-                            }
-                        }
-                    }
-                    .p-panelmenu-header{
-                        .p-panelmenu-header-link{
-                            background-color: #123950;
-                            color: wheat;
-                            border: none;
-                        }
-                        .p-panelmenu-header-link:focus{
-                            box-shadow: none;
-                        }
-                        .p-panelmenu-header-link:hover{
-                            color: #e4f2ff;
-                        }
-                    }
+  .sidebarMenu {
+    .p-panelmenu {
+      .p-panelmenu-panel {
+        .p-toggleable-content {
+          .p-panelmenu-content {
+            background-color: #123950;
+            border: none;
+            .p-submenu-list {
+              .p-menuitem {
+                .p-menuitem-link {
+                  .p-panelmenu-icon {
+                    color: #bbbab8;
+                  }
+                  .p-menuitem-icon {
+                    color: #bbbab8;
+                  }
+                  .p-menuitem-text {
+                    color: #bbbab8;
+                  }
                 }
+                .p-menuitem-link:focus {
+                  box-shadow: none;
+                  color: #e4f2ff;
+                }
+                .p-menuitem-link:hover {
+                  background-color: #175073;
+                  color: #e4f2ff;
+                }
+              }
+
+              .p-menuitem:focus {
+                outline: none;
+              }
             }
+          }
+        }
+        .p-panelmenu-header {
+          .p-panelmenu-header-link {
+            background-color: #123950;
+            color: wheat;
+            border: none;
+          }
+          .p-panelmenu-header-link:focus {
+            box-shadow: none;
+          }
+          .p-panelmenu-header-link:hover {
+            color: #e4f2ff;
+          }
+        }
       }
+    }
   }
+}

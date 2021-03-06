@@ -1,1 +1,27 @@
-<p>staff works!</p>
+<div class="content">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">FirstName</th>
+        <th scope="col">LastName</th>
+        <th scope="col">Email</th>
+        <th scope="col">Role</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; index as i">
+        <th scope="row">{{i+1}}</th> <!-- grvac che irakan ID-nery -->
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <button (click)="deleteUser(user.id)" pButton pRipple type="button" label="Delete"
+            class="p-button-danger p-button-text"></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
