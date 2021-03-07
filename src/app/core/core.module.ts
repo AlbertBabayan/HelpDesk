@@ -20,7 +20,7 @@ import { ActivatePublicGuard } from './guards';
         disallowedRoutes: [
           `${environment.serverUrl}/auth/login`,
           `${environment.serverUrl}/auth/register`,
-          `${environment.serverUrl}/auth/restore`
+          `${environment.serverUrl}/auth/forgot-password`
         ],
         tokenGetter: AuthService.getToken,
         skipWhenExpired: true,

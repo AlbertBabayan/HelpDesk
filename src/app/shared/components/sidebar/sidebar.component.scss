@@ -5,10 +5,12 @@
     grid-template-rows: auto 1fr;
     display: grid;
     .img {
-      display: contents;
+      height: 70px;
+      text-align: center;
       .cat {
-        width: 100%;
         height: 100%;
+        width: auto;
+        max-width: 100%;
       }
     }
     .nav {
@@ -17,30 +19,40 @@
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
+      margin-top: 100px;
     }
     .navElement {
       display: flex;
-      justify-content: center;
       align-items: center;
-      padding: 10px 20px;
+      padding: 18px 20px;
+      width: 100%;
+      border-bottom: 1.5px solid #223fdc;
       cursor: pointer;
       .button {
+        margin-left: 10px;
         font-size: 20px;
         background-color: #123950;
         color: #b2b9c2;
         border: none;
       }
       .icon {
-        color: #6696d4;;
+        color: #6696d4;
       }
-      .button:hover {
+    }
+    .navElement:hover {
+      .button {
         color: #2e6cbd;
       }
-      .button:active {
+      .icon {
         color: #2e6cbd;
       }
-      .button:focus {
-        outline: none;
+    }
+    .navElement:focus {
+      .button {
+        color: #2e6cbd;
+      }
+      .icon {
+        color: #2e6cbd;
       }
     }
     .navElement:focus {

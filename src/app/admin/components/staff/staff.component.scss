@@ -1,9 +1,13 @@
-.content{
+.content {
 }
-.p-button{
-  color: #882727;
-  border: none;
-}
-.p-button:focus{
-  box-shadow: none;
+.forButton {
+  text-align: center;
+  .p-button {
+    color: #882727;
+    border: none;
+    padding: 0;
+  }
+  .p-button:focus {
+    box-shadow: none;
+  }
 }

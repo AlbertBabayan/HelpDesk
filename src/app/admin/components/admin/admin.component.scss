@@ -1,16 +1,7 @@
 :host::ng-deep {
   .main {
-    .sidebar {
-    }
     .header {
-      display: grid;
-      grid-template-rows: 67px 1fr;
-    }
-    .content{
-      background-color: #bcc3cc;
-      app-staff{
-        width: 100%;
-      }
+      display: block;
     }
   }
 }

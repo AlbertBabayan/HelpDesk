@@ -32,22 +32,22 @@ export class StaffComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.complete();
   }
 
-  public getUsers(){
+  public getUsers() {
     this.staffService.getAllUsers(1, 10)
-    .pipe(
-      takeUntil(this.ngUnsubscribe)
-    )
-    .subscribe({
-      next: resp => {
-        this.users = resp;
-      },
-      error: err => {
-        console.log(err);
-      }
-    });
+      .pipe(
+        takeUntil(this.ngUnsubscribe)
+      )
+      .subscribe({
+        next: resp => {
+          this.users = resp;
+        },
+        error: err => {
+          console.log(err);
+        }
+      });
   }
 
-  public deleteUser(id: string){
+  public deleteUser(id: string) {
     this.users = this.users.filter(
       (user) => user.id !== id
     );

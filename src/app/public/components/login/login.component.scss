@@ -1,165 +1,182 @@
-.login-wrapper{
-    height: 100vh;
-    background-color: #a7dee675;
+.login-wrapper {
+  height: 100vh;
+  background-color: #a7dee675;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .formLogin {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    .formLogin{
-        display: flex;
-        flex-direction: column;
-        .header{
-            color: #35BDB2;
-            font-size: x-large;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin: 5px;
-            img{
-                width: 50px;
-                height: 50px;
-            }
-            p{
-                margin: 0;
-                padding-bottom: 4px;
-                border-bottom: 1px solid darkturquoise;
-            }
-        }
-        .userData{
-            border: 1px solid #d6d6d67d;
-            margin: 5px;
-            padding: 5px;
-            background-color: #eceae6cc;
-            box-shadow: 0 1px 5px #25254159;;
-            .inputs{
-                margin: 15px;
-                display: flex;
-                i{
-                    border-bottom-left-radius: 6px;
-                    border-top-left-radius: 6px;
-                    height: 35px;
-                    width: 30px;
-                    padding-top: 2px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: #00B5AD;
-                    color: white;
-                }
-                input{
-                    border: 1px solid #00B5AD;
-                    border-bottom-right-radius: 6px;
-                    border-top-right-radius: 6px;
-                    width: 250px;
-                    height: 35px;
-                    padding: 10px;
-                }
-                input:focus{
-                    outline: none
-                }
-            }
-            .errMessage{
-              display: flex;
-              justify-content: center;
-            }
-            .rememberAndForgot{
-                display: flex;
-                justify-content: space-between;
-                .remember{
-                    display: flex;
-                    align-items: center;
-                    margin-left: 15px;
-                    font-size: 15px;
-                    .rem{
-                        margin: 0 7px;
-                    }
-                    label{
-                        margin: 0;
-                        color: #444444;
-                        font-size: 15px;
-                        cursor: pointer;
-                    }
-                    input{
-                        box-sizing: border-box;
-                        padding: 0;
-                        margin-left: 5px;
-                    }
-                }
-                .forgot{
-                    margin-right: 15px;
-                    font-size: 15px;
-                    color: #444444;
-                    cursor: pointer;
-                }
-                .forgot:active{
-                    font-size: 14px;
-                    color: #000000;
-                    margin-right: 22px;
-                }
-            }
-
-            .login{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: 15px;
-                button{
-                    width: 280px;
-                    height: 35px;
-                    border-radius: 6px;
-                    font-size: 20px;
-                    border: none;
-                    background-color: #00B5AD;
-                    color: white;
-                    box-shadow: 0 2px 5px #382a33a3;
-                }
-                button:hover{
-                    font-weight: 500;
-                    background-color: #60e2db;
-                    color: #505050;
-                }
-                button:active{
-                    box-shadow: none;
-                }
-                button:focus{
-                    outline: none;
-                }
-            }
-        }
-        .singup{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid #d6d6d67d;
-            margin: 5px;
-            background-color: #eceae6cc;
-            padding: 3px;
-            box-shadow: 0 1px 5px #25254159;;
-            p{
-                margin: 0;
-                font-size: 15px;
-                color: #444444;
-            }
-            a{
-                border: none;
-                color: #04afe2;
-                font-weight: 500;
-                cursor: pointer;
-                margin-left: 8px;
-                font-size: 18px;
-            }
-            a:active{
-                box-shadow: none;
-            }
-            a:focus{
-                outline: none;
-            }
-            a:hover{
-                color:#0053b9;
-            }
-        }
+    flex-direction: column;
+    .header {
+      color: #00b5ad;
+      font-size: x-large;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 5px;
+      img {
+        width: 50px;
+        height: 50px;
+      }
+      p {
+        margin: 0;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #00b5ad;
+      }
     }
+    .userData {
+      border: 1px solid #d6d6d67d;
+      margin: 5px;
+      padding: 5px;
+      background-color: #eceae6cc;
+      box-shadow: 0 1px 5px #25254159;
+      .inputs {
+        margin: 15px;
+        display: flex;
+        i {
+          border-bottom-left-radius: 6px;
+          border-top-left-radius: 6px;
+          height: 35px;
+          width: 30px;
+          padding-top: 2px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #00b5ad;
+          color: white;
+        }
+        input {
+          border: 1px solid #00b5ad;
+          border-bottom-right-radius: 6px;
+          border-top-right-radius: 6px;
+          width: 250px;
+          height: 35px;
+          padding: 10px;
+        }
+        input:focus {
+          outline: none;
+        }
+      }
+      .errMessage {
+        display: flex;
+        justify-content: center;
+        p {
+          margin: 0;
+        }
+      }
+      .rememberAndForgot {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+        .remember {
+          display: flex;
+          align-items: center;
+          margin-left: 15px;
+          font-size: 15px;
+          .rem {
+            margin: 0 7px;
+          }
+          label {
+            margin: 0;
+            color: #444444;
+            font-size: 15px;
+            cursor: pointer;
+          }
+          input {
+            box-sizing: border-box;
+            padding: 0;
+            margin-left: 5px;
+          }
+        }
+        .remember:hover {
+          text-shadow: 0 1px 1px #80808085;
+        }
+        .forgot {
+          margin-right: 15px;
+          font-size: 15px;
+          color: #444444;
+          cursor: pointer;
+        }
+        .forgot:active {
+          font-size: 14px;
+          color: #000000;
+          margin-right: 22px;
+        }
+        .forgot:hover {
+          text-shadow: 0 1px 1px #80808085;
+        }
+      }
+
+      .login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 15px;
+        button {
+          width: 280px;
+          height: 35px;
+          border-radius: 6px;
+          font-size: 20px;
+          border: none;
+          background-color: #00b5ad;
+          color: white;
+          box-shadow: 0 2px 5px #382a33a3;
+        }
+        button:hover {
+          font-weight: 500;
+          background-color: #60e2db;
+          color: #505050;
+        }
+        button:active {
+          box-shadow: none;
+        }
+        button:focus {
+          outline: none;
+        }
+      }
+    }
+    .singup {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #d6d6d67d;
+      margin: 5px;
+      background-color: #eceae6cc;
+      padding: 3px;
+      box-shadow: 0 1px 5px #25254159;
+      p {
+        margin: 0;
+        font-size: 15px;
+        color: #444444;
+      }
+      a {
+        border: none;
+        color: #04afe2;
+        font-weight: 500;
+        cursor: pointer;
+        margin-left: 8px;
+      }
+    }
+    .singup:focus {
+      outline: none;
+      a {
+        outline: none;
+      }
+    }
+    .singup:hover {
+      cursor: pointer;
+      a {
+        color: #0053b9;
+      }
+    }
+    .singup:active {
+      a: {
+        box-shadow: none;
+      }
+    }
+  }
 }
 
-.ng-dirty.ng-invalid{
-    border-color:red;
+.ng-dirty.ng-invalid {
+  border-color: red;
 }
