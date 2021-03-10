@@ -11,13 +11,13 @@
   justify-content: center;
   align-items: center;
   padding: 40px 0;
-  p {
+  .reg-text {
     margin: 0;
     font-family: Georgia, serif;
     font-size: 80px;
     color: #7b7f83;
   }
-  i {
+  .icon {
     color: #4c5763;
     margin: 20px;
   }
@@ -27,19 +27,12 @@
     padding: 0 200px;
     .area {
       .field {
-        .control {
-          width: 100%;
-          label {
-            top: -15px;
-          }
-        }
         .control input:focus {
           border: none;
         }
         .errMessage {
-          display: flex;
-          p {
-            margin: 5px 0 0 0;
+          .text {
+            margin:0;
           }
         }
       }

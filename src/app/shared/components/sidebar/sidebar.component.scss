@@ -1,7 +1,7 @@
 :host::ng-deep {
   .sidebar {
     height: 100vh;
-    background-color: #123950;
+    background-color: #a7dee696;
     grid-template-rows: auto 1fr;
     display: grid;
     .img {
@@ -20,43 +20,47 @@
       justify-content: flex-start;
       align-items: flex-start;
       margin-top: 100px;
-    }
-    .navElement {
-      display: flex;
-      align-items: center;
-      padding: 18px 20px;
-      width: 100%;
-      border-bottom: 1.5px solid #223fdc;
-      cursor: pointer;
-      .button {
-        margin-left: 10px;
-        font-size: 20px;
-        background-color: #123950;
-        color: #b2b9c2;
-        border: none;
+      .topBorder{
+        border-top: 1.5px solid #ffffff;
       }
-      .icon {
-        color: #6696d4;
+      .navElement {
+        display: flex;
+        align-items: center;
+        padding: 18px 20px;
+        width: 100%;
+        border-bottom: 1.5px solid #ffffff;
+        cursor: pointer;
+        .button {
+          margin-left: 10px;
+          font-size: 20px;
+          color: #44446d;
+          border: none;
+        }
+        .icon {
+          color: #44446d;
+        }
       }
-    }
-    .navElement:hover {
-      .button {
-        color: #2e6cbd;
+      .navElement:hover {
+        .button {
+          color: #34344d;
+          text-shadow: 0 2px #25358a;
+        }
+        .icon {
+          color: #34344d;
+        }
       }
-      .icon {
-        color: #2e6cbd;
+      .navElement:focus {
+        .button {
+          color: #34344d;
+          text-shadow: 0 2px #25358a;
+        }
+        .icon {
+          color: #34344d;
+        }
       }
-    }
-    .navElement:focus {
-      .button {
-        color: #2e6cbd;
+      .navElement:focus {
+        outline: none;
       }
-      .icon {
-        color: #2e6cbd;
-      }
-    }
-    .navElement:focus {
-      outline: none;
     }
   }
   .sidebarMenu {

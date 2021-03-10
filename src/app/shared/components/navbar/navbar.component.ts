@@ -22,7 +22,7 @@ export class NavbarComponent implements OnInit {
           items: [
               [
                   {
-                      items: [{label: 'Personal cart'}, {label: 'Logout', command: this.logout.bind(this)}]
+                      items: [{label: 'Account'}, {label: 'Logout', command: this.logout.bind(this)}]
                   },
               ],
           ]

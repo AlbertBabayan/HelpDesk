@@ -8,8 +8,8 @@
           <input type="text" id="inputtext" pInputText formControlName="email">
           <label for="inputtext">Email</label>
         </div>
-        <div *ngIf="form.get('email').errors as errors" class="errMessage text-danger">
-          <p *ngIf="errors.email">Email is not valid</p>
+        <div *ngIf="form.get('email').errors as errors" class="errMessage text-center text-danger">
+          <p *ngIf="errors.email" class="text">Email is not valid</p>
         </div>
       </div>
       <div class="confirm">

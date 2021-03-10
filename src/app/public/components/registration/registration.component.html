@@ -1,8 +1,8 @@
 <div class="container-fluid cont">
   <div class="container content">
     <div class="registration row">
-      <p>Registration</p>
-      <i class="fa fa-user-plus fa-5x" aria-hidden="true"></i>
+      <p class="reg-text">Registration</p>
+      <i class="fa fa-user-plus fa-5x icon" aria-hidden="true"></i>
     </div>
     <div class="login-wrapper row">
       <div class="col-12 formgroup">
@@ -13,7 +13,7 @@
                 <input formControlName="firstName" class="form-control" pInputText type="text" id="inputtext">
                 <label for="inputtext">Firstname</label>
               </div>
-              <div *ngIf="userRegInfo.get('firstName').errors as errors" class="errMessage text-danger">
+              <div *ngIf="userRegInfo.get('firstName').errors as errors" class="errMessage text-center text-danger">
                 <p *ngIf="errors.maxLength">{{errors.maxLength.message}}</p>
                 <!-- <pre>{{errors | json}}</pre> -->
               </div>
@@ -23,7 +23,7 @@
                 <input formControlName="lastName" class="form-control" pInputText type="text">
                 <label for="inputtext">Lastname</label>
               </div>
-              <div *ngIf="userRegInfo.get('lastName').errors as errors" class="errMessage text-danger">
+              <div *ngIf="userRegInfo.get('lastName').errors as errors" class="errMessage text-center text-danger">
                 <p *ngIf="errors.maxLength">{{errors.maxLength.message}}</p>
               </div>
             </div>
@@ -34,7 +34,7 @@
                 <input formControlName="email" class="form-control" pInputText type="email" id="exampleInputEmail1">
                 <label for="inputtext">Email</label>
               </div>
-              <div *ngIf="userRegInfo.get('email').errors as errors" class="errMessage text-danger">
+              <div *ngIf="userRegInfo.get('email').errors as errors" class="errMessage text-center text-danger">
                 <p *ngIf="errors.email">Email is not valid</p>
               </div>
             </div>
@@ -43,7 +43,7 @@
                 <input formControlName="password" class="form-control" pInputText type="password">
                 <label for="inputtext">Password</label>
               </div>
-              <div *ngIf="userRegInfo.get('password').errors as errors" class="errMessage text-danger">
+              <div *ngIf="userRegInfo.get('password').errors as errors" class="errMessage text-center text-danger">
                 <p *ngIf="errors.minLength">{{errors.minLength.message}}</p>
               </div>
             </div>
