@@ -30,12 +30,12 @@
       width: 25%;
       .email {
         padding: 0 !important;
-        div {
-          input {
+        .ui-float-label {
+          .input {
             width: 100%;
           }
-          label {
-            margin-left: 13px;
+          .input:focus{
+            box-shadow: none;
           }
         }
         .errMessage {
@@ -47,37 +47,44 @@
       }
       .confirm {
         width: 100%;
-        .p-button-secondary {
+        .ui-button-secondary {
           width: 100%;
           margin-top: 20px;
           border: none;
+          background: #607d8b;
+          color: white;
+          height: 35px;
         }
-        .p-button-secondary:focus {
+        .ui-button-secondary:focus {
           box-shadow: none;
         }
       }
-      .p-button-secondary:not([disabled]):hover {
-        background-color: #4e4c4c;
+      .ui-button-secondary:not([disabled]):hover {
+        background-color: #85a7b8;
       }
-      .p-button-secondary:not([disabled]) {
-        box-shadow: 0 5px 10px #4e4c4c;
+      .ui-button-secondary:not([disabled]) {
+        box-shadow: 0 5px 10px #607d8b;
       }
-      .p-button-secondary:not([disabled]):focus {
+      .ui-button-secondary:not([disabled]):focus {
         box-shadow: none;
       }
     }
-    a {
+    .back {
       width: 100%;
       text-align: center;
       margin-top: 20px;
-      color: #4e4c4c;
+      text-decoration: none;
+      color: #686666;
       cursor: pointer;
     }
-    a:hover {
+    .back:hover {
       text-shadow: 0 1px 1px grey;
     }
-    a:focus {
+    .back:focus {
       text-shadow: 0 1px 1px grey;
     }
   }
+}
+.ng-invalid.ng-touched {
+  border-color: red !important;
 }

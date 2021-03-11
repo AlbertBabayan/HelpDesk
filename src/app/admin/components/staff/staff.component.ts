@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { PrimeNGConfig } from 'primeng/api';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -15,16 +14,15 @@ import { StaffService } from '../../services';
 export class StaffComponent implements OnInit, OnDestroy {
 
   public users: IUser[];
+  public pageSize = 10;
   private ngUnsubscribe = new Subject();
 
   constructor(
     private staffService: StaffService,
-    private primengConfig: PrimeNGConfig
   ) { }
 
   ngOnInit(): void {
     this.getUsers();
-    this.primengConfig.ripple = true;
   }
 
   ngOnDestroy(): void {
@@ -33,7 +31,7 @@ export class StaffComponent implements OnInit, OnDestroy {
   }
 
   public getUsers() {
-    this.staffService.getAllUsers(1, 10)
+    this.staffService.getAllUsers(1, this.pageSize)
       .pipe(
         takeUntil(this.ngUnsubscribe)
       )

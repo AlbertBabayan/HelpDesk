@@ -4,87 +4,70 @@
             box-shadow: 5px 1px 10px #24242f;
             padding: 0;
             .menu{
-                .p-megamenu{
+                .ui-megamenu{
                     padding: 14px 0 14px 0;
                     border: none;
                     border-radius: 0px;
                     background-color: #34344d;
-                    .p-megamenu-root-list{
+                    .ui-megamenu-root-list{
                         background-color: #34344d;
                         width: 100%;
                         display: flex;
                         justify-content: flex-end;
-                        .p-menuitem{
-                          padding-right: 20px;
-                            .p-megamenu-panel{
+                        .ui-menuitem {
+                            padding-right: 5px;
+                            .ui-menuitem-link{
+                                box-shadow: none;
+                                background: none;
+                                .ui-menuitem-icon{
+                                    color: white;
+                                    ::before{
+                                        color: white;
+                                    }
+                                }
+                                .ui-menuitem-text{
+                                    color: white;
+                                }
+                                .ui-submenu-icon{
+                                    color: white;
+                                    ::before{
+                                        color: white;
+                                    }                                
+                                }
+                              }
+                            .ui-menuitem-link:hover{
+                              background-color: #3c3c52;
+                              border-radius: 10px;
+                              .ui-menuitem-icon{
+                                color: #a7dee6;
+                            }
+                            .ui-menuitem-text{
+                                color: #a7dee6;
+                            }
+                            .ui-submenu-icon{
+                                color: #a7dee6;
+                            }
+                            }
+                            .ui-megamenu-panel {
                                 border-radius: 5px;
                                 background-color: #5e6482;
-                                width: 150px;
-                                .p-megamenu-grid{
-                                    .p-megamenu-col-12{
-                                        .p-megamenu-submenu{
-                                          width: 150px;
-                                          padding: 0;
-                                            .p-megamenu-submenu-header{
+                                width: 100%;
+                                .ui-megamenu-grid{
+                                    .ui-megamenu-col-12{
+                                        .ui-megamenu-submenu{
+                                            width: 100%;
+                                            .ui-megamenu-submenu-header{
                                                 display: none;
                                             }
-                                            .p-menu-item{
-                                              .p-menuitem-link{
-                                                .p-menuitem-text:hover{
-                                                  color: #313156;
-                                                  font-size: 20px;
-                                                }
-                                              }
-                                              .p-menuitem-link:hover{
-                                                background-color: none;
-                                              }
+                                            .ui-menuitem-link {
+                                                text-align: center;
                                             }
                                         }
                                     }
                                 }
                             }
-                            .p-menuitem-link{
-                              background: none;
-                              display: flex;
-                              justify-content: center;
-                              align-items: center;
-                                .p-menuitem-text{
-                                    color: #e4f2ff;
-                                    ::before{
-                                        color: #e4f2ff;
-                                    }
-                                }
-                                .p-menuitem-icon{
-                                    color: #e4f2ff;
-                                    ::before{
-                                        color: #e4f2ff;
-                                    }
-                                }
-                                .p-submenu-icon{
-                                    color: #e4f2ff;
-                                }
-                            }
-                            .p-menuitem-link:hover{
-                                background-color: none;
-                            }
-                            .p-menuitem-link:focus{
-                                box-shadow: none;
-                                background-color: none;
-                            }
-                            .p-menuitem-link:visited{
-                                background-color: none;
-                            }
-                            .p-menuitem-link:hover{
-                                span{
-                                    color: black;
-                                    ::before{
-                                        color: black;
-
-                                    }
-                                }
-                            }
                         }
-                        .p-menuitem:focus{
+                        .ui-menuitem:focus{
                             outline: none;
                         }
                     }

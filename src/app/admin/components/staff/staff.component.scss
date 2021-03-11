@@ -1,13 +1,29 @@
-.content {
-}
-.forButton {
-  text-align: center;
-  .p-button {
-    color: #882727;
-    border: none;
-    padding: 0;
+.content{
+  .pageName {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px auto;
+    color: #8d9fff;
   }
-  .p-button:focus {
-    box-shadow: none;
+  .table{
+    .tbody{
+      border-bottom: 1px solid #dee2e6;
+      .forButton {
+        .delete {
+          border: none;
+        }
+        .delete:focus {
+          box-shadow: none !important;
+        }
+        .delete:hover {
+          background-color: rgb(206, 5, 5) !important;
+        }
+      }
+    }
+  }
+  .ui-paginator {
+    width: max-content;
+    margin: auto;
   }
 }

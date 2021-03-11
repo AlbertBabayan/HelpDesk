@@ -9,42 +9,42 @@
         <form class="p-fluid p-grid" [formGroup]="userRegInfo">
           <div class="row area p-field p-col-12 p-md-4">
             <div class="field col-12 col-sm-6">
-              <div class="control text-danger p-float-label">
+              <div class="control ui-float-label">
                 <input formControlName="firstName" class="form-control" pInputText type="text" id="inputtext">
-                <label for="inputtext">Firstname</label>
+                <label for="float-input">Firstname</label>
               </div>
               <div *ngIf="userRegInfo.get('firstName').errors as errors" class="errMessage text-center text-danger">
-                <p *ngIf="errors.maxLength">{{errors.maxLength.message}}</p>
+                <p *ngIf="errors.maxLength" class="message">{{errors.maxLength.message}}</p>
                 <!-- <pre>{{errors | json}}</pre> -->
               </div>
             </div>
             <div class="field col-12 col-sm-6">
-              <div class="control p-float-label">
+              <div class="control ui-float-label">
                 <input formControlName="lastName" class="form-control" pInputText type="text">
-                <label for="inputtext">Lastname</label>
+                <label for="float-input">Lastname</label>
               </div>
               <div *ngIf="userRegInfo.get('lastName').errors as errors" class="errMessage text-center text-danger">
-                <p *ngIf="errors.maxLength">{{errors.maxLength.message}}</p>
+                <p *ngIf="errors.maxLength" class="message">{{errors.maxLength.message}}</p>
               </div>
             </div>
           </div>
           <div class="row area p-field p-col-12 p-md-4">
             <div class="field col-12 col-sm-6">
-              <div class="control p-float-label">
+              <div class="control ui-float-label">
                 <input formControlName="email" class="form-control" pInputText type="email" id="exampleInputEmail1">
-                <label for="inputtext">Email</label>
+                <label for="float-input">Email</label>
               </div>
               <div *ngIf="userRegInfo.get('email').errors as errors" class="errMessage text-center text-danger">
-                <p *ngIf="errors.email">Email is not valid</p>
+                <p *ngIf="errors.email" class="message">Email is not valid</p>
               </div>
             </div>
             <div class="field col-12 col-sm-6" >
-              <div class="control p-float-label">
+              <div class="control ui-float-label">
                 <input formControlName="password" class="form-control" pInputText type="password">
-                <label for="inputtext">Password</label>
+                <label for="float-input">Password</label>
               </div>
               <div *ngIf="userRegInfo.get('password').errors as errors" class="errMessage text-center text-danger">
-                <p *ngIf="errors.minLength">{{errors.minLength.message}}</p>
+                <p *ngIf="errors.minLength" class="message">{{errors.minLength.message}}</p>
               </div>
             </div>
           </div>

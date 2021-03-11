@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,11 +7,8 @@ import { MenuItem } from 'primeng/api';
 })
 export class SidebarComponent implements OnInit {
 
-  public sidebarItems: MenuItem[];
-
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

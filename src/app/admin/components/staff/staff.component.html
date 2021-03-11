@@ -1,4 +1,8 @@
 <div class="content">
+  <div class="pageName">
+    <h3>Staff</h3>
+    <button pButton type="button" label="Add Admin" class="ui-button-success"></button>
+  </div>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -10,18 +14,21 @@
         <th scope="col">Actions</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="tbody">
       <tr *ngFor="let user of users; index as i">
-        <th scope="row">{{i+1}}</th> <!-- grvac che irakan ID-nery -->
+        <th scope="row">{{user.id}}</th>
         <td>{{ user.firstName }}</td>
         <td>{{ user.lastName }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.role }}</td>
         <td class="forButton">
           <button (click)="deleteUser(user.id)" pButton pRipple type="button" label="Delete"
-            class="p-button-danger p-button-text"></button>
+            class="text-start ui-button-info delete"></button>
         </td>
       </tr>
     </tbody>
   </table>
+  <div>
+    <!-- <p-paginator [rows]="pageSize" [totalRecords]="100" [rowsPerPageOptions]="[5,10,20]" pageLinkSize="3"></p-paginator> -->
+  </div>
 </div>

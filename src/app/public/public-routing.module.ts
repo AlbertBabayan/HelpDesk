@@ -1,5 +1,5 @@
-import { NgModule, OnInit } from '@angular/core';
-import { Routes, RouterModule, Router } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 import { ActivatePublicGuard } from '../core/guards';
 import { LoginComponent, RegistrationComponent } from './components';
