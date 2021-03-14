@@ -35,7 +35,7 @@ export class RestoreComponent implements OnInit, OnDestroy {
   }
 
   public restore() {
-    this.auth.restorePass(this.form.value.email)
+    this.auth.restorePass(this.form.value)
       .pipe(
         takeUntil(this.ngUnsubscribe)
       ).subscribe({

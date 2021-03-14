@@ -1,5 +1,7 @@
 :host::ng-deep{
     .header{
+        width: 100%;
+        margin: 0 !important;
         .menu-items{
             box-shadow: 5px 1px 10px #24242f;
             padding: 0;
@@ -10,8 +12,6 @@
                     border-radius: 0px;
                     background-color: #34344d;
                     .ui-megamenu-root-list{
-                        background-color: #34344d;
-                        width: 100%;
                         display: flex;
                         justify-content: flex-end;
                         .ui-menuitem {

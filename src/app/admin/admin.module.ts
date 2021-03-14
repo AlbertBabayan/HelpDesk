@@ -5,7 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AdminRoutingModule } from './admin-routing.module';
 
 import { AdminComponent } from './components/admin/admin.component';
-import { AdminDataService, StaffService } from './services';
+import { AdminDataService, LoaderService, StaffService } from './services';
 import { StaffComponent, TicketsComponent, ConfigComponent } from './components';
 
 @NgModule({
@@ -22,7 +22,8 @@ import { StaffComponent, TicketsComponent, ConfigComponent } from './components'
   ],
   providers: [
     AdminDataService,
-    StaffService
+    StaffService,
+    LoaderService
   ],
 })
 export class AdminModule { }

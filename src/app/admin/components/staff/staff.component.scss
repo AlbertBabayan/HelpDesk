@@ -1,13 +1,14 @@
-.content{
+.content {
   .pageName {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px auto;
+    margin: 5px auto;
     color: #8d9fff;
+    width: 100%;
   }
-  .table{
-    .tbody{
+  .table {
+    .tbody {
       border-bottom: 1px solid #dee2e6;
       .forButton {
         .delete {

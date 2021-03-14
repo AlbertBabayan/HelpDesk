@@ -58,6 +58,6 @@ export class AuthService {
   }
 
   public restorePass(email: string): Observable<IRestore> {
-    return this.http.post<IRestore>(`${environment.serverUrl}/auth/forgot-password`, { email });
+    return this.http.post<IRestore>(`${environment.serverUrl}/auth/forgot-password`, email);
   }
 }

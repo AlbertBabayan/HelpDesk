@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { IUser } from '../../../core/infrastructure/interfaces';
-import { StaffService } from '../../services';
+import { LoaderService, StaffService } from '../../services';
 
 @Component({
   selector: 'app-staff',
@@ -19,6 +19,7 @@ export class StaffComponent implements OnInit, OnDestroy {
 
   constructor(
     private staffService: StaffService,
+    private loaderSvc: LoaderService
   ) { }
 
   ngOnInit(): void {
@@ -31,7 +32,24 @@ export class StaffComponent implements OnInit, OnDestroy {
   }
 
   public getUsers() {
+    this.loaderSvc.subject.next(true);
     this.staffService.getAllUsers(1, this.pageSize)
+      .pipe(
+        takeUntil(this.ngUnsubscribe)
+      )
+      .subscribe({
+        next: resp => {
+          this.loaderSvc.subject.next(false);
+          this.users = resp;
+        },
+        error: err => {
+          this.loaderSvc.subject.next(false);
+        }
+      });
+  }
+
+  public deleteUser(id: string) {
+    this.staffService.deleteUser(id)
       .pipe(
         takeUntil(this.ngUnsubscribe)
       )
@@ -40,14 +58,7 @@ export class StaffComponent implements OnInit, OnDestroy {
           this.users = resp;
         },
         error: err => {
-          console.log(err);
         }
       });
-  }
-
-  public deleteUser(id: string) {
-    this.users = this.users.filter(
-      (user) => user.id !== id
-    );
   }
 }
