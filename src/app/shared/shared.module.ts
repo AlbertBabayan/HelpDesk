@@ -10,13 +10,13 @@ import { ButtonModule } from 'primeng/button';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { PaginatorModule } from 'primeng/paginator';
 
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { NavbarComponent, SidebarComponent, UserAccountComponent } from './components';
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    UserAccountComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +38,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     ButtonModule,
     PaginatorModule,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    UserAccountComponent
   ],
   providers: []
 })

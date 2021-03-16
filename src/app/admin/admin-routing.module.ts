@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { UserAccountComponent } from '../shared/components';
 import { AdminComponent, StaffComponent, TicketsComponent, ConfigComponent } from './components';
 
 const routes: Routes = [
@@ -8,7 +10,8 @@ const routes: Routes = [
     children: [
       { path: 'staff', component: StaffComponent },
       { path: 'tickets', component: TicketsComponent },
-      { path: 'config', component: ConfigComponent }
+      { path: 'config', component: ConfigComponent },
+      { path: 'account/:id', component: UserAccountComponent }
     ]
   }
 ];

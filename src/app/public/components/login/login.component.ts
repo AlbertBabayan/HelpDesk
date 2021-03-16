@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { ToastrService } from 'ngx-toastr';
-import { IUser } from '../../../core/infrastructure/interfaces';
+import { ILogined } from '../../../core/infrastructure/interfaces';
 import { maxLength } from '../../../core/infrastructure/validators';
 import { AuthService } from '../../../core/services';
 
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public userInfoForm: FormGroup;
   public loggedIn: boolean;
-  public loginedUserInfo: IUser;
+  public loginedUserInfo: ILogined;
   private ngUnsubscribe = new Subject();
 
   constructor(
@@ -56,7 +56,8 @@ export class LoginComponent implements OnInit, OnDestroy {
         takeUntil(this.ngUnsubscribe)
       )
       .subscribe(
-        () => {
+        resp => {
+          this.loginedUserInfo = resp;
           this.router.navigate(['admin']);
         },
         err => {

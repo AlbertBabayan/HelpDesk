@@ -11,6 +11,8 @@ import { environment } from 'src/environments/environment';
 
 export class StaffService {
 
+  public userId: string;
+
   constructor(
     private http: HttpClient
   ) { }
@@ -19,7 +21,19 @@ export class StaffService {
     return this.http.get<IUser[]>(`${environment.serverUrl}/users?page=${page}&limit=${limit}`);
   }
 
+  public getUser(id: number): Observable<IUser> {
+    return this.http.get<IUser>(`${environment.serverUrl}/user/:${id}`)
+      .pipe(
+        map(
+          resp => {
+            this.userId = resp.id;
+            return resp;
+          }
+        )
+      );
+  }
+
   public deleteUser(id: string): Observable<IUser[]> {
-    return this.http.delete<IUser[]>(`${environment.serverUrl}/users/:${id}`);
+    return this.http.delete<IUser[]>(`${environment.serverUrl}/users/:${id}`); // ?? interface
   }
 }

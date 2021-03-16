@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ActivatePublicGuard } from '../core/guards';
-import { LoginComponent, RegistrationComponent } from './components';
-import { RestoreComponent } from './components/restore/restore.component';
+import { LoginComponent, RegistrationComponent, RestoreComponent } from './components';
 
 const routes: Routes = [
   {

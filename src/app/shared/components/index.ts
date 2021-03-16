@@ -1,2 +1,3 @@
 export * from './navbar';
-export * from './sitebar';
+export * from './sidebar';
+export * from './user-account';
