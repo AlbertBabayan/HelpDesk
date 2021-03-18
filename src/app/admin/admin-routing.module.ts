@@ -11,7 +11,7 @@ const routes: Routes = [
       { path: 'staff', component: StaffComponent },
       { path: 'tickets', component: TicketsComponent },
       { path: 'config', component: ConfigComponent },
-      { path: 'account/:id', component: UserAccountComponent }
+      { path: 'account', component: UserAccountComponent }
     ]
   }
 ];

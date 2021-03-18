@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+
 import { AuthService } from '../../services';
 
 @Injectable({
@@ -15,9 +15,9 @@ export class ActivatePublicGuard implements CanActivate {
 
   canActivate(): boolean {
     if (this.auth.isSignedIn) {
-      this.router.navigate(['admin']);
+      this.router.navigate([this.auth.userId]);
       return false;
-    };
+    }
     return true;
   }
 }

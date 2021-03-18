@@ -6,13 +6,11 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from '../../../../environments/environment';
-import { IRegUser, ILogined, ILogin, IRestore } from '../../../core/infrastructure/interfaces';
+import { IRegUser, ILogined, ILogin, IRestore, IUser, IToken } from '../../../core/infrastructure/interfaces';
 
 @Injectable()
 
 export class AuthService {
-
-  public token: string;
 
   constructor(
     private http: HttpClient,
@@ -23,8 +21,16 @@ export class AuthService {
     return localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
   }
 
+  public getUser(): Observable<IUser> {
+    return this.http.get<IUser>(`${environment.serverUrl}/user/${this.userId}`);
+  }
+
+  public get userId() {
+    return localStorage.getItem('userId') || sessionStorage.getItem('userId');
+  }
+
   public get isSignedIn(): boolean {
-    return AuthService.getToken() && !this.jwtHelper.isTokenExpired(this.token);
+    return AuthService.getToken() && !this.jwtHelper.isTokenExpired(AuthService.getToken());
   }
 
   public authentication(formData: ILogin, rememberMe: boolean): Observable<ILogined> {
@@ -32,11 +38,12 @@ export class AuthService {
       .pipe(
         map(
           resp => {
-            this.token = resp.tokens.access.token;
             if (rememberMe) {
-              localStorage.setItem('authToken', this.token);
+              localStorage.setItem('authToken', resp.tokens.access.token);
+              localStorage.setItem('userId', resp.user.id);
             } else {
-              sessionStorage.setItem('authToken', this.token);
+              sessionStorage.setItem('authToken', resp.tokens.access.token);
+              sessionStorage.setItem('userId', resp.user.id);
             }
             return resp;
           }
@@ -49,12 +56,15 @@ export class AuthService {
       .pipe(
         map(
           resp => {
-            this.token = resp.tokens.access.token;
-            sessionStorage.setItem('authToken', this.token);
+            sessionStorage.setItem('userId', resp.user.id);
+            sessionStorage.setItem('authToken', resp.tokens.access.token);
             return resp;
           }
         ),
       );
+  }
+  public updateUser(updateForm: Partial<IUser>): Observable<IUser> {
+    return this.http.put<IUser>(`${environment.serverUrl}/users/${this.userId}`, updateForm);
   }
 
   public restorePass(email: string): Observable<IRestore> {

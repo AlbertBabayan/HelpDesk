@@ -1,1 +1,65 @@
-<p>user-account works!</p>
+<div class="account">
+	<div class="row updateUser">
+		<p class="updateUser-text">Edit your profil</p>
+	</div>
+	<div class="row user">
+		<div class="userInfo">
+			<div>
+				<img class="img" src="https://picsum.photos/130/130">
+			</div>
+			<div class="role text-center">
+				<h5>{{user.role}}</h5>
+			</div>
+		</div>
+		<div class="form" [formGroup]="accountForm">
+			<div class="form1">
+				<div class="firstInfo">
+					<div class="input ui-float-label">
+						<input class="control" formControlName="firsName" id="float-input" type="text" size="30"
+							pInputText>
+						<label class="label" for="float-input">Firstname</label>
+					</div>
+					<div class="err-message">
+						<div *ngIf="accountForm.get('firsName').touched && accountForm.get('firsName').errors as errors"
+							class=" text-center text-danger">
+							<p class="message" *ngIf="errors.maxLength">{{errors.maxLength.message}}</p>
+							<!-- <pre>{{errors | json}}</pre> -->
+						</div>
+					</div>
+				</div>
+				<div class="firstInfo">
+					<div class="input ui-float-label">
+						<input class="control" formControlName="lastName" id="float-input" type="text" size="30"
+							pInputText>
+						<label class="label" for="float-input">Lastname</label>
+					</div>
+					<div class="err-message">
+						<div *ngIf="accountForm.get('lastName').touched && accountForm.get('lastName').errors as errors"
+							class=" text-center text-danger">
+							<p class="message" *ngIf="errors.maxLength">{{errors.maxLength.message}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form2">
+				<div class="secondInfo">
+					<div class="input ui-float-label">
+						<input class="control" formControlName="email" id="float-input" type="text" size="30"
+							pInputText>
+						<label class="label" for="float-input">Email</label>
+					</div>
+					<div class="err-message">
+						<div *ngIf="accountForm.get('email').touched && accountForm.get('email').errors as errors"
+							class=" text-center text-danger">
+							<p class="message" *ngIf="errors.email">Email is not valid</p>
+						</div>
+					</div>
+				</div>
+				<div class="button">
+					<button [disabled]="accountForm.invalid" (click)="update()" pButton type="button"
+						label="Save Changes" class="ui-button-raised ui-button-secondary update"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

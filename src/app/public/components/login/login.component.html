@@ -13,20 +13,23 @@
                 <i class="fa fa-user-circle fa-lg" aria-hidden="true"></i>
                 <input placeholder="email" formControlName="email" type="text">
             </div>
-            <div *ngIf="userInfoForm.get('email').touched && userInfoForm.get('email').errors as errors" class=" text-center text-danger">
+            <div *ngIf="userInfoForm.get('email').touched && userInfoForm.get('email').errors as errors"
+                class=" text-center text-danger">
                 <p *ngIf="errors.email">Email is not valid</p>
             </div>
             <div class="input" ngbPopover="Type your password." placement="right">
                 <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
                 <input placeholder="password" formControlName="password" type="password">
             </div>
-            <div *ngIf="userInfoForm.get('password').touched && userInfoForm.get('password').errors as errors" class="text-center text-danger">
+            <div *ngIf="userInfoForm.get('password').touched && userInfoForm.get('password').errors as errors"
+                class="text-center text-danger">
                 <p *ngIf="errors.maxLength">{{errors.maxLength.message}}</p>
             </div>
             <div class="rememberAndForgot">
                 <div class="remember">
                     <label for="remember">Remember me</label>
-                    <p-checkbox class="rem" name="groupname" formControlName="rememberme" inputId="remember"></p-checkbox>
+                    <p-checkbox class="rem" name="groupname" formControlName="rememberme" inputId="remember">
+                    </p-checkbox>
                 </div>
                 <div class="forgot">
                     <a (click)="forgotPassword()">Forgot Password?</a>

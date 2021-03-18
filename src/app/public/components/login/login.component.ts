@@ -27,10 +27,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder,
     private auth: AuthService,
     private router: Router,
-    private toastrService: ToastrService) {
+    private toastrService: ToastrService
+  ) {
     this.loggedIn = this.auth.isSignedIn;
     if (this.loggedIn) {
-      this.router.navigate(['admin']);
+      this.router.navigate([this.auth.userId]); // toDo: admin || user
     }
   }
 
@@ -55,12 +56,12 @@ export class LoginComponent implements OnInit, OnDestroy {
       .pipe(
         takeUntil(this.ngUnsubscribe)
       )
-      .subscribe(
-        resp => {
+      .subscribe({
+        next: resp => {
           this.loginedUserInfo = resp;
           this.router.navigate(['admin']);
         },
-        err => {
+        error: err => {
           if (err.status === 0 || err.status === 404) {
             this.toastrService.error('The requested URL was not found on this server or no internet conection');
           } else {
@@ -68,7 +69,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             this.toastrService.error(message);
           }
         }
-      );
+      });
   }
 
   public forgotPassword() {

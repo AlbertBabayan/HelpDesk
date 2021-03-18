@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { MegaMenuItem } from 'primeng/api';
-import { StaffService } from 'src/app/admin/services';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +15,6 @@ export class NavbarComponent implements OnInit {
   constructor(
     private activeRoute: ActivatedRoute,
     private router: Router,
-    private staffSVC: StaffService
   ) { }
 
   ngOnInit(): void {
@@ -41,6 +39,6 @@ export class NavbarComponent implements OnInit {
   }
 
   public account() {
-    this.router.navigate(['account', this.staffSVC.userId], { relativeTo: this.activeRoute });
+    this.router.navigate(['account'], { relativeTo: this.activeRoute });
   }
 }

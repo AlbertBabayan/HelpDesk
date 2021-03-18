@@ -1,0 +1,89 @@
+.account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  .updateUser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    width: 100%;
+    .updateUser-text {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: 60px;
+      color: #494977;
+    }
+  }
+  .user {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    .userInfo {
+      margin: 0 10px;
+      .img {
+        border-radius: 10px;
+      }
+    }
+    .role {
+      margin-top: 15px;
+      color: #34344d;
+    }
+    .form {
+      margin: 0 10px;
+      .form1 {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 20px 0;
+        .firstInfo {
+          margin: 0 20px;
+        }
+      }
+      .form2 {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 20px 0;
+        .secondInfo {
+          margin: 0 20px;
+        }
+        .button {
+          margin: 0 20px;
+          .update {
+            width: 242px;
+            height: 35px;
+            color: #187280;
+            background: #a7dee6;
+            border: none;
+          }
+          .update:not([disabled]):hover {
+            background-color: #a8c7d6;
+          }
+          .update:not([disabled]) {
+            box-shadow: 0 5px 10px #a0bcca;
+          }
+          .update:not([disabled]):focus {
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}
+.input {
+  .label {
+    color: #187280;
+  }
+}
+.err-message {
+  height: 30px;
+  font-size: 13px;
+  .message {
+    margin: 0;
+  }
+}
+.ng-touched.ng-invalid {
+  border-color: red !important;
+}

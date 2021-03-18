@@ -27,10 +27,10 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.userRegInfo = this.formBuilder.group({
-      firstName: ['', [Validators.required], [maxLength(8)]],
-      lastName: ['', [Validators.required], [maxLength(14)]],
+      firstName: ['', [Validators.required], [maxLength(10)]],
+      lastName: ['', [Validators.required], [maxLength(12)]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required], [minLength(8)]],
+      password: ['', [Validators.required], [minLength(10)]],
       role: ['user']
     });
   }
@@ -46,7 +46,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
         takeUntil(this.ngUnsubscribe)
       ).subscribe({
         next: resp => {
-          this.router.navigate(['admin']);
+          this.router.navigate([resp.user.role]);
         },
         error: err => {
           if (err.status === 0 || err.status === 404) {
