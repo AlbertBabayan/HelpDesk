@@ -1,0 +1,14 @@
+:host::ng-deep {
+    .config {
+        .ui-state-default.ui-corner-top.ng-star-inserted{
+            background: #dffbff !important;
+        }
+        .ui-state-default.ui-corner-top.ng-star-inserted.ui-tabview-selected.ui-state-active {
+            background: #525280 !important;
+            border: none !important;
+        }
+        .ui-tabview-selected.ui-state-active:focus {
+            box-shadow: none !important;
+        }
+    }
+}

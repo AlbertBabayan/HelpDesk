@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { MegaMenuItem } from 'primeng/api';
+import { AuthService } from 'src/app/core/services';
 
 @Component({
   selector: 'app-navbar',
@@ -15,6 +16,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     private activeRoute: ActivatedRoute,
     private router: Router,
+    private auth: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -33,8 +35,7 @@ export class NavbarComponent implements OnInit {
   }
 
   public logout() {
-    localStorage.removeItem('authToken');
-    sessionStorage.removeItem('authToken');
+    this.auth.remove();
     this.router.navigate(['login']);
   }
 

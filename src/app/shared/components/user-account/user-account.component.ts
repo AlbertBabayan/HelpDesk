@@ -32,31 +32,38 @@ export class UserAccountComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit(): void {
-		this.accountForm = this.bulder.group({
-			firsName: ['', [Validators.required], [maxLength(10)]],
-			lastName: ['', [Validators.required], [maxLength(12)]],
-			email: ['', [Validators.required, Validators.email]]
-		}),
-		this.loaderSvc.subject.next(true);
-		this.auth.getUser()
-		.pipe(
-			takeUntil(this.ngUnsubscribe)
-			)
-			.subscribe({
-				next: resp => {
-				this.loaderSvc.subject.next(false);
-				this.user = resp;
-			},
-			error: err => {
-				this.loaderSvc.subject.next(false);
-
-			}
-		})
+		this.formInit();
+		this.getUser();
 	}
 
 	ngOnDestroy(): void {
 		this.ngUnsubscribe.next();
 		this.ngUnsubscribe.unsubscribe();
+	}
+
+	public formInit() {
+		this.accountForm = this.bulder.group({
+			firsName: ['', [Validators.required], [maxLength(10)]],
+			lastName: ['', [Validators.required], [maxLength(12)]],
+			email: ['', [Validators.required, Validators.email]]
+		})
+	}
+
+	public getUser() {
+		this.loaderSvc.subject.next(true);
+		this.auth.getUser()
+			.pipe(
+				takeUntil(this.ngUnsubscribe)
+			)
+			.subscribe({
+				next: resp => {
+					this.loaderSvc.subject.next(false);
+					this.user = resp;
+				},
+				error: err => {
+					this.loaderSvc.subject.next(false);
+				}
+			})
 	}
 
 	public update() {

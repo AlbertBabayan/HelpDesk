@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -19,7 +20,8 @@ export class StaffComponent implements OnInit, OnDestroy {
 
   constructor(
     private staffService: StaffService,
-    private loaderSvc: LoaderService
+    private loaderSvc: LoaderService,
+    private toaster: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -55,9 +57,12 @@ export class StaffComponent implements OnInit, OnDestroy {
       )
       .subscribe({
         next: resp => {
-          this.users = resp;
+          this.toaster.info(resp);
+          this.getUsers();
         },
         error: err => {
+          console.log(err);
+          this.toaster.info('error');
         }
       });
   }

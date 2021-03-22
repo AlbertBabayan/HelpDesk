@@ -1,0 +1,129 @@
+:host::ng-deep {
+    .content {
+        width: 50%;
+        .example-list {
+            width: auto;
+            .columns {
+                .columnName {
+                    color: #00508e;
+                }
+                .buttonsForColumn{
+                    .editButton {
+                        background: none;
+                        border: none;
+                        color: #007ad9;
+                        margin: 0 5px;
+                    }
+                    .editButton:focus{
+                        outline: none;
+                    }
+                    .editButton:hover{
+                        color: #61baff;
+                    }
+                    .clearButton {
+                        border: none;
+                        background: none;
+                        color: #b70505;
+                        margin: 0 5px;
+                    }
+                    .clearButton:focus {
+                        outline: none;
+                    }
+                    .clearButton:hover {
+                        color: #f10606;
+                    }
+                }
+            }
+        }
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+            padding: 15px 0 0 0;
+            .addButton {
+                margin: 0 10px 0 0;
+                .pButton {
+                    .ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only {
+                        box-shadow: 0 1px 5px #000000;
+                    }
+                    .ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only:focus {
+                        box-shadow: none;
+                    }
+                }
+            }
+            .saveButton {
+                box-shadow: 0 1px 5px #000000;
+            }
+            .saveButton:focus {
+                box-shadow: none !important;
+            }
+        }
+    }
+}
+// drag&dropStyles
+
+.example-list {
+    width: 500px;
+    max-width: 100%;
+    border: solid 1px #ccc;
+    min-height: 60px;
+    display: block;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.example-box {
+    padding: 20px 10px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+    border: none;
+    .columnName {
+        color: #00508e;
+    }
+    .clearButton {
+        border: none;
+        background: none;
+        color: #b70505;
+        margin: 0 5px;
+    }
+    .editButton {
+        background: none;
+        border: none;
+        color: #007ad9;
+        margin: 0 5px;
+    }
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.ng-touched.ng-invalid {
+    border-color: red;
+}

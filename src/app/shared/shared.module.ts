@@ -3,12 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { PaginatorModule } from 'primeng/paginator';
+import { TabViewModule } from 'primeng/tabview';
+import { DialogModule } from 'primeng/dialog';
 
 import { NavbarComponent, SidebarComponent, UserAccountComponent } from './components';
 
@@ -27,7 +30,10 @@ import { NavbarComponent, SidebarComponent, UserAccountComponent } from './compo
     InputTextModule,
     ButtonModule,
     MegaMenuModule,
-    PaginatorModule
+    PaginatorModule,
+    TabViewModule,
+    DialogModule,
+    DragDropModule
   ],
   exports: [
     ReactiveFormsModule,
@@ -39,7 +45,10 @@ import { NavbarComponent, SidebarComponent, UserAccountComponent } from './compo
     PaginatorModule,
     NavbarComponent,
     SidebarComponent,
-    UserAccountComponent
+    UserAccountComponent,
+    TabViewModule,
+    DialogModule,
+    DragDropModule
   ],
   providers: []
 })

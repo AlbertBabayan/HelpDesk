@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   ) {
     this.loggedIn = this.auth.isSignedIn;
     if (this.loggedIn) {
-      this.router.navigate([this.auth.userId]); // toDo: admin || user
+      this.router.navigate([this.loginedUserInfo.user.role]);
     }
   }
 
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       .subscribe({
         next: resp => {
           this.loginedUserInfo = resp;
-          this.router.navigate(['admin']);
+          this.router.navigate([this.loginedUserInfo.user.role]);
         },
         error: err => {
           if (err.status === 0 || err.status === 404) {

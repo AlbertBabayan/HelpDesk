@@ -6,11 +6,13 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from '../../../../environments/environment';
-import { IRegUser, ILogined, ILogin, IRestore, IUser, IToken } from '../../../core/infrastructure/interfaces';
+import { IRegUser, ILogined, ILogin, IRestore, IUser } from '../../../core/infrastructure/interfaces';
 
 @Injectable()
 
 export class AuthService {
+
+  public loginedUser: ILogined;
 
   constructor(
     private http: HttpClient,
@@ -21,12 +23,21 @@ export class AuthService {
     return localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
   }
 
-  public getUser(): Observable<IUser> {
-    return this.http.get<IUser>(`${environment.serverUrl}/user/${this.userId}`);
-  }
-
   public get userId() {
     return localStorage.getItem('userId') || sessionStorage.getItem('userId');
+  }
+
+  public remove() {
+    if (AuthService.getToken) {
+      localStorage.removeItem('authToken');
+      sessionStorage.removeItem('authToken');
+      localStorage.removeItem('userId');
+      sessionStorage.removeItem('userId');
+    }
+  }
+
+  public getUser(): Observable<IUser> {
+    return this.http.get<IUser>(`${environment.serverUrl}/user/${this.userId}`);
   }
 
   public get isSignedIn(): boolean {
@@ -45,6 +56,7 @@ export class AuthService {
               sessionStorage.setItem('authToken', resp.tokens.access.token);
               sessionStorage.setItem('userId', resp.user.id);
             }
+            this.loginedUser = resp;
             return resp;
           }
         )
@@ -56,6 +68,7 @@ export class AuthService {
       .pipe(
         map(
           resp => {
+            this.remove();
             sessionStorage.setItem('userId', resp.user.id);
             sessionStorage.setItem('authToken', resp.tokens.access.token);
             return resp;

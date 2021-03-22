@@ -15,7 +15,7 @@ export class ActivatePublicGuard implements CanActivate {
 
   canActivate(): boolean {
     if (this.auth.isSignedIn) {
-      this.router.navigate([this.auth.userId]);
+      this.router.navigate([this.auth.loginedUser.user.role]);
       return false;
     }
     return true;
