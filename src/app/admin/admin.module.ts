@@ -20,7 +20,7 @@ import { StaffComponent, TicketsComponent, ConfigComponent, TicketColumnsCompone
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule,
+    SharedModule
   ],
   providers: [
     AdminDataService,

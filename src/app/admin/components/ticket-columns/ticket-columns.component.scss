@@ -7,17 +7,17 @@
                 .columnName {
                     color: #00508e;
                 }
-                .buttonsForColumn{
+                .buttonsForColumn {
                     .editButton {
                         background: none;
                         border: none;
                         color: #007ad9;
                         margin: 0 5px;
                     }
-                    .editButton:focus{
+                    .editButton:focus {
                         outline: none;
                     }
-                    .editButton:hover{
+                    .editButton:hover {
                         color: #61baff;
                     }
                     .clearButton {
@@ -34,11 +34,19 @@
                     }
                 }
             }
+            .completed {
+                color: #00508e;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                background: #34a83540;;
+                cursor: not-allowed;
+            }
         }
         .buttons {
             display: flex;
             justify-content: flex-end;
-            padding: 15px 0 0 0;
+            padding: 15px 10px 15px 0;
             .addButton {
                 margin: 0 10px 0 0;
                 .pButton {
@@ -105,6 +113,7 @@
     border: none;
     .columnName {
         color: #00508e;
+        font-family: "Open Sans", "Helvetica Neue", sans-serif;
     }
     .clearButton {
         border: none;

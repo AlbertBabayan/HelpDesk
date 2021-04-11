@@ -12,6 +12,7 @@ import { MegaMenuModule } from 'primeng/megamenu';
 import { PaginatorModule } from 'primeng/paginator';
 import { TabViewModule } from 'primeng/tabview';
 import { DialogModule } from 'primeng/dialog';
+import { TooltipModule } from 'primeng/tooltip';
 
 import { NavbarComponent, SidebarComponent, UserAccountComponent } from './components';
 
@@ -33,7 +34,8 @@ import { NavbarComponent, SidebarComponent, UserAccountComponent } from './compo
     PaginatorModule,
     TabViewModule,
     DialogModule,
-    DragDropModule
+    DragDropModule,
+    TooltipModule
   ],
   exports: [
     ReactiveFormsModule,
@@ -48,7 +50,8 @@ import { NavbarComponent, SidebarComponent, UserAccountComponent } from './compo
     UserAccountComponent,
     TabViewModule,
     DialogModule,
-    DragDropModule
+    DragDropModule,
+    TooltipModule
   ],
   providers: []
 })

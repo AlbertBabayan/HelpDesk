@@ -19,6 +19,6 @@ export class StaffService {
   }
 
   public deleteUser(id: string): Observable<string> {
-    return this.http.delete<string>(`${environment.serverUrl}/users/${id}`);
+    return this.http.delete(`${environment.serverUrl}/users/${id}`, {responseType: 'text'});
   }
 }

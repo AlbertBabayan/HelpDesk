@@ -26,13 +26,18 @@ export class AuthService {
   public get userId() {
     return localStorage.getItem('userId') || sessionStorage.getItem('userId');
   }
+  public get userRole() {
+    return localStorage.getItem('userRole') || sessionStorage.getItem('userRole');
+  }
 
   public remove() {
     if (AuthService.getToken) {
       localStorage.removeItem('authToken');
-      sessionStorage.removeItem('authToken');
       localStorage.removeItem('userId');
+      localStorage.removeItem('userRole');
+      sessionStorage.removeItem('authToken');
       sessionStorage.removeItem('userId');
+      sessionStorage.removeItem('userRole');
     }
   }
 
@@ -52,9 +57,11 @@ export class AuthService {
             if (rememberMe) {
               localStorage.setItem('authToken', resp.tokens.access.token);
               localStorage.setItem('userId', resp.user.id);
+              localStorage.setItem('userRole', resp.user.role);
             } else {
               sessionStorage.setItem('authToken', resp.tokens.access.token);
               sessionStorage.setItem('userId', resp.user.id);
+              sessionStorage.setItem('userRole', resp.user.role);
             }
             this.loginedUser = resp;
             return resp;
@@ -71,6 +78,7 @@ export class AuthService {
             this.remove();
             sessionStorage.setItem('userId', resp.user.id);
             sessionStorage.setItem('authToken', resp.tokens.access.token);
+            sessionStorage.setItem('userRole', resp.user.role);
             return resp;
           }
         ),

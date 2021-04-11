@@ -1,32 +1,36 @@
 <div class="content">
     <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-        <div class="example-box columns" *ngFor="let name of columnsNames; let i = index" cdkDrag>
-            <h5 class="columnName">{{name}}</h5>
-            <div class="buttonsForColumn">
-                <button (click)="edit(i)" type="button" class="editButton">
+        <div class="example-box columns" *ngFor="let col of columns let i = index"
+            [class.completed]="col.label === 'Completed'"
+            cdkDrag
+            [cdkDragDisabled]="col.label === 'Completed'">
+            <h5 class="columnName">{{col.label}}</h5>
+            <div class="buttonsForColumn" *ngIf="col.label !== 'Completed'">
+                <button (click)="edit(i)" type="button" class="editButton" pTooltip="Edit" tooltipPosition="top">
                     <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
                 </button>
-                <button (click)="deleteColumn(i)" class="clearButton" type="button">
+                <button (click)="deleteColumn(i)" class="clearButton" type="button" pTooltip="Delete"
+                    tooltipPosition="top">
                     <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
-    </div>
-    <div class="buttons">
-        <div class="addButton">
-            <p-button #showModal class="pButton" (click)="showModalDialog(true)" label="Add new"></p-button>
-            <p-dialog header="Create new ticket" [position]="'topleft'" [(visible)]="displayModal" [modal]="true"
-                [style]="{width: '30vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
-                <div [formGroup]="columNameForm">
-                    <input formControlName="addNewColumn" type="text" size="20" placeholder="Column Name" pInputText>
-                </div>
-                <p-footer>
-                    <p-button icon="pi pi-check" (click)="confirm()" label="Yes"
-                        class="p-button-text" [disabled]="columNameForm.invalid"></p-button>
-                    <p-button icon="pi pi-times" (click)="closeModal()" label="No"></p-button>
-                </p-footer>
-            </p-dialog>
+        <div class="buttons">
+            <div class="addButton">
+                <p-button class="pButton" (click)="showModalDialog(true)" label="Add new"></p-button>
+                <p-dialog header="Create new ticket" [position]="'topleft'" [(visible)]="displayModal" [modal]="true"
+                    [style]="{width: '30vw'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false">
+                    <div [formGroup]="columNameForm">
+                        <input formControlName="addNewColumn" type="text" size="20" placeholder="Column Name"
+                            pInputText>
+                    </div>
+                    <p-footer>
+                        <p-button type="submit" icon="pi pi-check" (click)="confirm()" label="Yes" class="p-button-text"
+                            [disabled]="columNameForm.invalid"></p-button> <!--  doNotWork -->
+                        <p-button icon="pi pi-times" (click)="closeModal()" label="No"></p-button>
+                    </p-footer>
+                </p-dialog>
+            </div>
+            <button pButton (click)="save()" type="button" label="Save" class="ui-button-success saveButton"></button>
         </div>
-        <button pButton type="button" label="Save" class="ui-button-success saveButton"></button>
     </div>
-</div>
