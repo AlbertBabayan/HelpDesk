@@ -12,8 +12,6 @@ import { IRegUser, ILogined, ILogin, IRestore, IUser } from '../../../core/infra
 
 export class AuthService {
 
-  public loginedUser: ILogined;
-
   constructor(
     private http: HttpClient,
     private jwtHelper: JwtHelperService
@@ -63,7 +61,6 @@ export class AuthService {
               sessionStorage.setItem('userId', resp.user.id);
               sessionStorage.setItem('userRole', resp.user.role);
             }
-            this.loginedUser = resp;
             return resp;
           }
         )

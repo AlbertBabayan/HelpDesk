@@ -1,9 +1,7 @@
 <div class="content">
     <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
         <div class="example-box columns" *ngFor="let col of columns let i = index"
-            [class.completed]="col.label === 'Completed'"
-            cdkDrag
-            [cdkDragDisabled]="col.label === 'Completed'">
+            [class.completed]="col.label === 'Completed'" cdkDrag [cdkDragDisabled]="col.label === 'Completed'">
             <h5 class="columnName">{{col.label}}</h5>
             <div class="buttonsForColumn" *ngIf="col.label !== 'Completed'">
                 <button (click)="edit(i)" type="button" class="editButton" pTooltip="Edit" tooltipPosition="top">
@@ -34,3 +32,4 @@
             <button pButton (click)="save()" type="button" label="Save" class="ui-button-success saveButton"></button>
         </div>
     </div>
+</div>

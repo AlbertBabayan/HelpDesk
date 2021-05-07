@@ -126,7 +126,7 @@ export class TicketColumnsComponent implements OnInit, OnDestroy {
       this.columns[this.selectedItemIndex].name = this.changeWhitespace(currentValue);
     } else {
       // new case
-      this.columns.push({
+      this.columns.unshift({
         label: currentValue,
         name: this.changeWhitespace(currentValue),
         default: false

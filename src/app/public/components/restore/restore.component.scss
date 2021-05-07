@@ -34,14 +34,14 @@
           .input {
             width: 100%;
           }
-          .input:focus{
+          .input:focus {
             box-shadow: none;
           }
         }
         .errMessage {
           margin-top: 15px;
         }
-        .text{
+        .text {
           margin: 0;
         }
       }
@@ -69,19 +69,22 @@
         box-shadow: none;
       }
     }
-    .back {
+    .remember {
       width: 100%;
       text-align: center;
       margin-top: 20px;
-      text-decoration: none;
-      color: #686666;
-      cursor: pointer;
-    }
-    .back:hover {
-      text-shadow: 0 1px 1px grey;
-    }
-    .back:focus {
-      text-shadow: 0 1px 1px grey;
+      .back{
+        cursor: pointer;
+        color: #686666;
+      }
+      .back:hover {
+        text-shadow: 0 1px 1px grey;
+        text-decoration: none;
+      }
+      .back:focus {
+        text-shadow: 0 1px 1px grey;
+        text-decoration: none;
+      }
     }
   }
 }

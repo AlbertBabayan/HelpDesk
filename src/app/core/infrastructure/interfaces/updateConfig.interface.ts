@@ -1,9 +1,9 @@
 import { IColumn } from './getColumn.interface';
-import { ITicket } from './ticket.interface';
+import { ITicketDescription } from './ticketDescription.interface';
 
 export interface IUpdateConfig {
     _id: string;
-    ticket: ITicket[];
+    ticket: ITicketDescription[];
     column: IColumn[];
     __v: number;
     id: string;
