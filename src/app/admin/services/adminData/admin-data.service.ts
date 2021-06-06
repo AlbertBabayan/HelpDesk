@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
-import { IColumn, ITicket, ITicketDescription, IUpdateConfig } from 'src/app/core/infrastructure/interfaces';
+import { IColumn, ITicketDescription, IUpdateConfig } from 'src/app/core/infrastructure/interfaces';
 
 @Injectable()
 
@@ -23,7 +23,7 @@ export class AdminDataService {
     return this.http.get<ITicketDescription[]>(`${environment.serverUrl}/configs?type=ticket`);
   }
 
-  public updateTicket(ticket: Partial<ITicket[]>): Observable<IUpdateConfig> {
-    return this.http.post<IUpdateConfig>(`${environment.serverUrl}/configs?type=ticket`, ticket);
+  public updateTicket(tickets: Partial<ITicketDescription[]>): Observable<IUpdateConfig> {
+    return this.http.post<IUpdateConfig>(`${environment.serverUrl}/configs?type=ticket`, tickets);
   }
 }

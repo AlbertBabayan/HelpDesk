@@ -1,0 +1,112 @@
+.content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 50%;
+  .ticketLabelContainer {
+    border-bottom: 1px solid gray;
+    width: 100%;
+    .ticketLabel {
+      display: flex;
+      margin: 10px 0;
+      border-bottom: 1px solid #c7c7c7;
+      width: max-content;
+      .forTicketLabel {
+        margin: 0;
+      }
+      .dropdownIcon{
+        margin: 0 5px;
+      }
+    }
+  }
+  .ticketForm {
+    width: 100%;
+    .ticketFormInputs {
+      margin: 2% 0;
+      .ticketNameAndType {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        .ticketName {
+          margin-right: 1%;
+        }
+      }
+    }
+    .dropDown {
+      margin: 3% 0;
+      .dropdownItems {
+        margin: 1% 0;
+        .controlsAndButton {
+          margin: 1% 0;
+          .delete {
+            margin: 0 1%;
+            border: none;
+            background: none;
+            color: rgb(247, 70, 70);
+          }
+          .delete:hover {
+            color: red;
+          }
+          .delete:focus {
+            outline: none;
+          }
+        }
+      }
+      // add item button
+      .ui-button-raised.ui-button-secondary {
+        margin: 1% 0;
+        background-color: #dedede;
+        box-shadow: 0 2px 5px #8c8c8c;
+        border: none;
+      }
+      .ui-button-raised.ui-button-secondary:hover {
+        background-color: #c8c8c8;
+      }
+      .ui-button-raised.ui-button-secondary:focus {
+        box-shadow: none;
+      }
+    }
+  }
+  .save {
+    display: flex;
+    width: 100%;
+    // submit button
+    .ui-button-raised.ui-button-success {
+      box-shadow: 0 1px 5px #000000;
+    }
+    .ui-button-raised.ui-button-success:focus {
+      cursor: auto;
+      box-shadow: none;
+    }
+    .ui-button-raised.ui-button-success:disabled {
+      cursor: auto;
+      box-shadow: none;
+    }
+    // add to list button
+    .ui-button-raised.ui-button-info {
+      margin: 0 10px;
+      box-shadow: 0 1px 5px #000000;
+    }
+    .ui-button-raised.ui-button-info:disabled {
+      cursor: auto;
+      box-shadow: none;
+    }
+    .ui-button-raised.ui-button-info:focus {
+      cursor: auto;
+      box-shadow: none;
+    }
+  }
+}
+
+:host ::ng-deep .p-dropdown {
+  width: 14rem;
+}
+
+.ng-touched.ng-invalid {
+  border-color: rgb(255, 0, 51);
+}
+.ng-dirty.ng-invalid {
+  border-color: rgb(255, 0, 51); // ?
+}

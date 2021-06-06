@@ -6,6 +6,5 @@ export * from './user.interface';
 export * from './restore.interface';
 export * from './getColumn.interface';
 export * from './updateConfig.interface';
-export * from './ticket.interface';
 export * from './ticketDescription.interface';
 export * from './dropdownItem.interface';

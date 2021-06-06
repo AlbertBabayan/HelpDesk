@@ -1,1 +1,44 @@
-<p>ticket-form works!</p>
+<div class="content">
+    <div class="ticketLabelContainer">
+        <div *ngFor="let ticket of tickets" class="ticketLabel">
+            <h5 class="forTicketLabel">{{ticket.label}}</h5>
+            <div class="dropdownIcon" *ngIf="ticket.type==='dropdown'">
+                <i class="fa fa-sort-desc fa-lg" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+    <div class="ticketForm" [formGroup]="ticketForm">
+        <div class="ticketFormInputs">
+            <div class="ticketNameAndType">
+                <input class="ticketName" formControlName="ticketName" id="input" type="text" size="30" pInputText
+                    placeholder="Name">
+                <p-dropdown [options]="ticketTypeOptions" formControlName="ticketType" placeholder="Select a type"
+                    [showClear]="true">
+                </p-dropdown>
+            </div>
+        </div>
+        <div class="dropDown" *ngIf="ticketForm.get('ticketType').value==='dropdown'">
+            <div class="dropdownItems" formArrayName="dropdownItems">
+                <div *ngFor="let item of ticketForm.get('dropdownItems')['controls']; let i = index">
+                    <div class="controlsAndButton">
+                        <input [formControl]="item" id="input" type="text" size="30" pInputText
+                            placeholder="Dropdown Item Name">
+                        <button class="delete" type="button" (click)='deleteItem(i)'>
+                            <i class="fa fa-minus-circle fa-lg" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <button class="addItem" (click)="addItem()" pButton type="button" label="Add Item"
+                class="ui-button-raised ui-button-secondary"></button>
+        </div>
+    </div>
+    <div class="save">
+        <button class="submit" (click)="Submit()"
+            [disabled]="ticketForm.get('ticketName').invalid || ticketForm.get('ticketType').invalid" pButton
+            type="button" label="Submit" class="ui-button-raised ui-button-success"></button>
+        <button class="addToList" (click)="addToList()"
+            [disabled]="ticketForm.get('ticketName').invalid || ticketForm.get('ticketType').invalid" pButton
+            type="button" label="Add to list" class="ui-button-raised ui-button-info"></button>
+    </div>
+</div>

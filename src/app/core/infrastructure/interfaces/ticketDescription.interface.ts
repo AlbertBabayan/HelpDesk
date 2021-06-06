@@ -1,7 +1,7 @@
 import { IDropdownItem } from './dropdownItem.interface';
 
 export interface ITicketDescription {
-    default: boolean;
+    default?: boolean;
     _id?: string;
     label: string;
     name: string;
