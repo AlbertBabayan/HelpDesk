@@ -44,12 +44,15 @@
             margin: 0 1%;
             border: none;
             background: none;
-            color: rgb(247, 70, 70);
+            color: rgb(248, 125, 125);
           }
-          .delete:hover {
+          .delete:disabled {
+            color: #BBBBBB
+          }
+          .delete:enabled:hover {
             color: red;
           }
-          .delete:focus {
+          .delete:enabled:focus {
             outline: none;
           }
         }

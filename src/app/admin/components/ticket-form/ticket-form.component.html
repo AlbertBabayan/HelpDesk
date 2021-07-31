@@ -23,7 +23,7 @@
                     <div class="controlsAndButton">
                         <input [formControl]="item" id="input" type="text" size="30" pInputText
                             placeholder="Dropdown Item Name">
-                        <button class="delete" type="button" (click)='deleteItem(i)'>
+                        <button [disabled]="ticketForm.get('dropdownItems').value.length < 2" class="delete" type="button" (click)='deleteItem(i)'>
                             <i class="fa fa-minus-circle fa-lg" aria-hidden="true"></i>
                         </button>
                     </div>
